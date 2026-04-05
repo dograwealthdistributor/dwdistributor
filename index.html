@@ -6,118 +6,81 @@
 <title>Dogra Wealth Distributor</title>
 
 <style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Segoe UI', sans-serif;
-}
+* {margin:0; padding:0; box-sizing:border-box; font-family:'Segoe UI',sans-serif;}
 
-body {
-    background: #f5f7fa;
-    color: #333;
-}
+body {background:#f5f7fa; color:#333;}
 
 /* HERO */
 header {
     background: linear-gradient(135deg, #0a2540, #007bff);
-    color: white;
-    text-align: center;
-    padding: 80px 20px;
-    animation: fadeIn 1.2s ease-in-out;
+    color:white;
+    text-align:center;
+    padding:80px 20px;
+    animation:fadeIn 1.2s ease-in-out;
 }
-
-header h1 {
-    font-size: 40px;
-    margin-bottom: 10px;
-}
-
-header p {
-    font-size: 18px;
-    opacity: 0.9;
-}
+header h1 {font-size:40px;}
+header p {margin-top:10px;}
 
 /* BUTTON */
 .btn {
-    display: inline-block;
-    margin-top: 20px;
-    padding: 12px 25px;
-    background: #25D366;
-    color: white;
-    border-radius: 30px;
-    text-decoration: none;
-    transition: 0.3s;
-    font-weight: bold;
+    display:inline-block;
+    margin-top:15px;
+    padding:10px 20px;
+    background:#25D366;
+    color:white;
+    border-radius:25px;
+    text-decoration:none;
+    border:none;
+    cursor:pointer;
 }
-
-.btn:hover {
-    transform: scale(1.05);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-}
+.btn:hover {transform:scale(1.05);}
 
 /* SECTION */
-section {
-    padding: 60px 20px;
-    text-align: center;
-}
+section {padding:60px 20px; text-align:center;}
 
-/* SERVICES */
+/* CARDS */
 .services {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:20px;
 }
-
 .card {
-    background: white;
-    padding: 25px;
-    width: 250px;
-    border-radius: 15px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-    transition: 0.3s;
+    background:white;
+    padding:20px;
+    width:260px;
+    border-radius:15px;
+    box-shadow:0 5px 20px rgba(0,0,0,0.08);
 }
-
-.card:hover {
-    transform: translateY(-10px);
-}
-
-.card h3 {
-    margin-bottom: 10px;
+.card:hover {transform:translateY(-10px);}
+.card input {
+    width:100%;
+    margin:5px 0;
+    padding:8px;
 }
 
 /* CONTACT */
-.contact {
-    background: #0a2540;
-    color: white;
-}
+.contact {background:#0a2540; color:white;}
 
-/* STICKY BUTTON */
+/* FLOAT BUTTON */
 .whatsapp-float {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background: #25D366;
-    color: white;
-    padding: 15px 18px;
-    border-radius: 50%;
-    font-size: 20px;
-    text-decoration: none;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    background:#25D366;
+    color:white;
+    padding:15px;
+    border-radius:50%;
+    text-decoration:none;
+    font-size:20px;
 }
 
 /* ANIMATION */
 @keyframes fadeIn {
-    from {opacity: 0; transform: translateY(20px);}
-    to {opacity: 1; transform: translateY(0);}
+    from {opacity:0; transform:translateY(20px);}
+    to {opacity:1; transform:translateY(0);}
 }
 
-/* MOBILE */
-@media(max-width: 768px) {
-    header h1 {
-        font-size: 28px;
-    }
-}
 </style>
 </head>
 
@@ -134,17 +97,64 @@ section {
     <div class="services">
         <div class="card">
             <h3>SIP Planning</h3>
-            <p>Build long-term wealth with disciplined investing.</p>
+            <p>Disciplined investing for long-term wealth.</p>
         </div>
         <div class="card">
             <h3>Mutual Funds</h3>
-            <p>Data-driven fund selection for better returns.</p>
+            <p>Data-driven fund selection.</p>
         </div>
         <div class="card">
             <h3>Insurance</h3>
-            <p>Protect your family and financial goals.</p>
+            <p>Protect your financial future.</p>
         </div>
     </div>
+</section>
+
+<section>
+    <h2>Financial Calculators</h2>
+    <div class="services">
+
+        <div class="card">
+            <h3>SIP Calculator</h3>
+            <input type="number" id="sip_amount" placeholder="Monthly Investment">
+            <input type="number" id="sip_rate" placeholder="Return (%)">
+            <input type="number" id="sip_years" placeholder="Years">
+            <button class="btn" onclick="calculateSIP()">Calculate</button>
+            <p id="sip_result"></p>
+        </div>
+
+        <div class="card">
+            <h3>SWP Calculator</h3>
+            <input type="number" id="swp_corpus" placeholder="Corpus">
+            <input type="number" id="swp_withdrawal" placeholder="Monthly Withdrawal">
+            <input type="number" id="swp_rate" placeholder="Return (%)">
+            <button class="btn" onclick="calculateSWP()">Calculate</button>
+            <p id="swp_result"></p>
+        </div>
+
+        <div class="card">
+            <h3>Future Value</h3>
+            <input type="number" id="fv_present" placeholder="Investment">
+            <input type="number" id="fv_rate" placeholder="Return (%)">
+            <input type="number" id="fv_years" placeholder="Years">
+            <button class="btn" onclick="calculateFV()">Calculate</button>
+            <p id="fv_result"></p>
+        </div>
+
+    </div>
+</section>
+
+<section>
+    <h2>Visit Our Office</h2>
+    <p>Opp. Guru Nanak Park, Jail Road, Karnal</p>
+
+    <iframe 
+        src="https://www.google.com/maps?q=Karnal%20Haryana&output=embed"
+        width="100%" 
+        height="350" 
+        style="border:0; border-radius:15px;"
+        loading="lazy">
+    </iframe>
 </section>
 
 <section class="contact">
@@ -156,6 +166,37 @@ section {
 </section>
 
 <a href="https://wa.me/919463665032" class="whatsapp-float">💬</a>
+
+<script>
+
+// SIP
+function calculateSIP() {
+    let P = sip_amount.value;
+    let r = sip_rate.value/100/12;
+    let n = sip_years.value*12;
+    let FV = P * (((Math.pow(1+r,n)-1)/r)*(1+r));
+    sip_result.innerHTML = "₹ " + Math.round(FV).toLocaleString();
+}
+
+// SWP
+function calculateSWP() {
+    let corpus = swp_corpus.value;
+    let withdrawal = swp_withdrawal.value;
+    let rate = swp_rate.value/100/12;
+    let months = Math.log(withdrawal/(withdrawal - corpus*rate))/Math.log(1+rate);
+    swp_result.innerHTML = Math.round(months) + " months";
+}
+
+// FV
+function calculateFV() {
+    let P = fv_present.value;
+    let r = fv_rate.value/100;
+    let n = fv_years.value;
+    let FV = P * Math.pow(1+r,n);
+    fv_result.innerHTML = "₹ " + Math.round(FV).toLocaleString();
+}
+
+</script>
 
 </body>
 </html>
