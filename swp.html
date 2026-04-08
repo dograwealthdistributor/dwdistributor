@@ -1,28 +1,36 @@
-<title>SWP Calculator | Monthly Income Planner</title>
+<!DOCTYPE html>
+<html>
+<head>
+<title>SWP Calculator</title>
+<meta name="description" content="SWP calculator to plan monthly income.">
+</head>
+<body>
 
-<meta name="description" content="Plan monthly income using SWP calculator. Know withdrawal and remaining corpus.">
+<h2>SWP Calculator</h2>
 
-<input type="number" id="corpus" placeholder="Total Investment">
-<input type="number" id="withdrawal" placeholder="Monthly Income">
-<input type="number" id="rate" placeholder="Return %">
-<input type="number" id="years" placeholder="Years">
+<input id="corpus" placeholder="Investment">
+<input id="withdrawal" placeholder="Monthly Income">
+<input id="rate" placeholder="Return %">
+<input id="years" placeholder="Years">
+
+<button onclick="calc()">Calculate</button>
+
+<p id="out"></p>
 
 <script>
 function calc(){
-let c=Number(corpus.value);
-let w=Number(withdrawal.value);
-let r=Number(rate.value)/100/12;
-let y=Number(years.value)*12;
-
+let c=corpus.value,w=withdrawal.value,r=rate.value/100/12,y=years.value*12;
 let bal=c,total=0;
 
 for(let i=0;i<y;i++){
 bal*=1+r;
-if(bal<w){total+=bal;bal=0;break;}
 bal-=w;
 total+=w;
 }
 
-output.innerHTML="Total Withdrawn: ₹"+Math.round(total)+"<br>Remaining: ₹"+Math.round(bal);
+out.innerHTML="Withdrawn ₹"+Math.round(total)+" Remaining ₹"+Math.round(bal);
 }
 </script>
+
+</body>
+</html>
