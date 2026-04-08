@@ -1,50 +1,28 @@
-<!DOCTYPE html>
-<html>
-<head>
-<title>SWP Calculator India</title>
-<meta name="description" content="Monthly income calculator from mutual funds">
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-</head>
+<title>SWP Calculator | Monthly Income Planner</title>
 
-<body style="text-align:center;font-family:Arial;">
+<meta name="description" content="Plan monthly income using SWP calculator. Know withdrawal and remaining corpus.">
 
-<h2>SWP Calculator</h2>
-
-<input id="corpus" placeholder="Total Investment"><br>
-<input id="withdrawal" placeholder="Monthly Withdrawal"><br>
-<input id="rate" placeholder="Return %"><br>
-<input id="years" placeholder="Years"><br>
-
-<button onclick="calc()">Calculate</button>
-
-<p id="output"></p>
-<canvas id="chart"></canvas>
-
-<h3>How to Use</h3>
-<p>Enter investment, withdrawal, return rate and years.</p>
+<input type="number" id="corpus" placeholder="Total Investment">
+<input type="number" id="withdrawal" placeholder="Monthly Income">
+<input type="number" id="rate" placeholder="Return %">
+<input type="number" id="years" placeholder="Years">
 
 <script>
-let chart;
 function calc(){
-let corpus=Number(corpus.value);
-let withdrawal=Number(withdrawal.value);
-let rate=Number(rate.value)/100/12;
-let months=years.value*12;
+let c=Number(corpus.value);
+let w=Number(withdrawal.value);
+let r=Number(rate.value)/100/12;
+let y=Number(years.value)*12;
 
-let balance=corpus,total=0;
+let bal=c,total=0;
 
-for(let i=0;i<months;i++){
-balance*=1+rate;
-if(balance<withdrawal){total+=balance;balance=0;break;}
-balance-=withdrawal;total+=withdrawal;
+for(let i=0;i<y;i++){
+bal*=1+r;
+if(bal<w){total+=bal;bal=0;break;}
+bal-=w;
+total+=w;
 }
 
-output.innerHTML="Withdrawn: ₹"+Math.round(total)+" Remaining: ₹"+Math.round(balance);
-
-if(chart) chart.destroy();
-chart=new Chart(chart,{type:'pie',data:{labels:['Withdrawn','Remaining'],datasets:[{data:[total,balance]}]}});
+output.innerHTML="Total Withdrawn: ₹"+Math.round(total)+"<br>Remaining: ₹"+Math.round(bal);
 }
 </script>
-
-</body>
-</html>
