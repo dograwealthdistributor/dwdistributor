@@ -1,32 +1,40 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<title>Inflation Calculator</title>
-</head>
+<section>
+<h2>Inflation Adjusted Calculator</h2>
 
-<body>
+<div class="services">
 
-<h2>Inflation Calculator</h2>
+<div class="card">
+<h3>Inflation Adjusted</h3>
+<input type="number" id="inf_amount" placeholder="Total Investment">
+<input type="number" id="inf_rate" placeholder="Expected Return Rate % (p.a.)">
+<input type="number" id="inf_years" placeholder="Time Period (Years)">
+<input type="number" id="inf_inflation" value="6" placeholder="Inflation %">
+<button class="btn" onclick="calcInflation()">Calculate</button>
+<p class="result" id="inf_output"></p>
+<canvas id="inf_chart"></canvas>
+</div>
 
-<input id="p" placeholder="Investment">
-<input id="r" placeholder="Return %">
-<input id="y" placeholder="Years">
-<input id="i" value="6" placeholder="Inflation %">
+</div>
 
-<button onclick="calc()">Calculate</button>
+<div style="margin-top:30px;">
+<a class="btn" href="index.html">Lumpsum</a>
+<a class="btn" href="sip.html">SIP</a>
+<a class="btn" href="swp.html">SWP</a>
+</div>
 
-<p id="out"></p>
+</section>
 
 <script>
-function calc(){
-let P=p.value,r=r.value/100,y1=y.value,i1=i.value/100;
-let FV=P*Math.pow(1+r,y1);
-let real=FV/Math.pow(1+i1,y1);
+let infChart;
 
-out.innerHTML="Future ₹"+Math.round(FV)+" Real ₹"+Math.round(real);
+function calcInflation(){
+let P=Number(inf_amount.value),r=Number(inf_rate.value)/100,n=Number(inf_years.value),i=Number(inf_inflation.value)/100;
+if(!P||!r||!n||!i)return;
+let FV=P*Math.pow(1+r,n),realFV=FV/Math.pow(1+i,n),gain=FV-P;
+
+inf_output.innerHTML="Future Value: ₹"+Math.round(FV).toLocaleString()+"<br>Real Value: ₹"+Math.round(realFV).toLocaleString();
+
+if(infChart)infChart.destroy();
+infChart=new Chart(inf_chart,{type:'pie',data:{labels:['Invested','Gain'],datasets:[{data:[P,gain]}]}});
 }
 </script>
-
-</body>
-</html>
