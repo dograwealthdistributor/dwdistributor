@@ -120,8 +120,10 @@ text-decoration:none;
 <input type="number" id="swp_corpus" placeholder="Initial Corpus">
 <input type="number" id="swp_withdrawal" placeholder="Monthly Withdrawal">
 <input type="number" id="swp_rate" placeholder="Return (%)">
+<input type="number" id="swp_years" placeholder="Period (Years)">
 <button class="btn" onclick="calcSWP()">Calculate</button>
 <p class="result" id="swp_output"></p>
+<p class="result" id="swp_safe"></p>
 <canvas id="swp_chart"></canvas>
 </div>
 
@@ -158,7 +160,6 @@ function calcSIP(){
 let P = Number(document.getElementById("sip_amount").value);
 let r = Number(document.getElementById("sip_rate").value)/100/12;
 let n = Number(document.getElementById("sip_years").value)*12;
-
 if(!P || !r || !n) return;
 
 let FV = P * (((Math.pow(1+r,n)-1)/r)*(1+r));
@@ -169,7 +170,6 @@ document.getElementById("sip_output").innerHTML =
 "Invested: ₹"+invested.toLocaleString()+"<br>Final: ₹"+Math.round(FV).toLocaleString()+"<br>Gain: ₹"+Math.round(gain).toLocaleString();
 
 if(sipChart) sipChart.destroy();
-
 sipChart = new Chart(document.getElementById("sip_chart"),{
 type:'pie',
 data:{labels:['Invested','Gain'],datasets:[{data:[invested,gain]}]}
@@ -181,7 +181,6 @@ function calcLump(){
 let P = Number(document.getElementById("lum_amount").value);
 let r = Number(document.getElementById("lum_rate").value)/100;
 let n = Number(document.getElementById("lum_years").value);
-
 if(!P || !r || !n) return;
 
 let FV = P*Math.pow(1+r,n);
@@ -191,56 +190,59 @@ document.getElementById("lum_output").innerHTML =
 "Invested: ₹"+P.toLocaleString()+"<br>Final: ₹"+Math.round(FV).toLocaleString()+"<br>Gain: ₹"+Math.round(gain).toLocaleString();
 
 if(lumChart) lumChart.destroy();
-
 lumChart = new Chart(document.getElementById("lum_chart"),{
 type:'pie',
 data:{labels:['Invested','Gain'],datasets:[{data:[P,gain]}]}
 });
 }
 
-// SWP (FINAL FIXED)
+// SWP (ADVANCED)
 function calcSWP(){
 
 let corpus = Number(document.getElementById("swp_corpus").value);
 let withdrawal = Number(document.getElementById("swp_withdrawal").value);
 let rate = Number(document.getElementById("swp_rate").value)/100/12;
+let years = Number(document.getElementById("swp_years").value);
 
 let output = document.getElementById("swp_output");
+let safeBox = document.getElementById("swp_safe");
 
-if(!corpus || !withdrawal || !rate){
-    output.innerHTML = "Please enter all values";
-    return;
+if(!corpus || !withdrawal || !rate || !years){
+output.innerHTML = "Please enter all values";
+return;
 }
 
-if(withdrawal <= corpus * rate){
-    output.innerHTML = "⚠️ Withdrawal too low (investment will grow)";
-    return;
+let months = years * 12;
+let balance = corpus;
+let totalWithdrawn = 0;
+
+for(let i=0;i<months;i++){
+balance = balance*(1+rate);
+
+if(balance < withdrawal){
+totalWithdrawn += balance;
+balance = 0;
+break;
 }
 
-if(withdrawal >= corpus){
-    output.innerHTML = "⚠️ Withdrawal too high";
-    return;
+balance -= withdrawal;
+totalWithdrawn += withdrawal;
 }
-
-let months = Math.log(withdrawal/(withdrawal - corpus*rate))/Math.log(1+rate);
-
-if(!isFinite(months)){
-    output.innerHTML = "Invalid input";
-    return;
-}
-
-let totalWithdrawn = withdrawal * months;
-let remaining = Math.max(0, corpus - totalWithdrawn);
 
 output.innerHTML =
-"Duration: "+Math.round(months)+" months<br>" +
-"Total Withdrawn: ₹"+Math.round(totalWithdrawn).toLocaleString();
+"Total Withdrawn: ₹"+Math.round(totalWithdrawn).toLocaleString()+"<br>" +
+"Remaining Corpus: ₹"+Math.round(balance).toLocaleString();
+
+let safeMonthly = (corpus*0.04)/12;
+
+safeBox.innerHTML =
+"Safe Withdrawal (4% Rule): ₹"+Math.round(safeMonthly).toLocaleString()+"/month";
 
 if(swpChart) swpChart.destroy();
 
 swpChart = new Chart(document.getElementById("swp_chart"),{
 type:'pie',
-data:{labels:['Withdrawn','Remaining'],datasets:[{data:[totalWithdrawn,remaining]}]}
+data:{labels:['Withdrawn','Remaining'],datasets:[{data:[totalWithdrawn,balance]}]}
 });
 }
 
