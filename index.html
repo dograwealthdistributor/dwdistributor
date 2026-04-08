@@ -16,7 +16,6 @@ background:linear-gradient(135deg,#0a2540,#007bff);
 color:#fff;text-align:center;padding:60px 20px;
 }
 
-/* PROFILE */
 .profile-img{
 width:120px;height:120px;
 border-radius:50%;
@@ -25,11 +24,7 @@ object-fit:cover;
 margin-bottom:10px;
 }
 
-.name{
-font-size:18px;
-margin-bottom:10px;
-opacity:0.9;
-}
+.name{font-size:18px;margin-bottom:10px;}
 
 .btn{
 display:inline-block;margin:10px;padding:12px 25px;
@@ -62,17 +57,13 @@ canvas{margin-top:10px;}
 background:#ff9800;color:#fff;padding:20px;text-align:center;font-weight:bold;
 }
 
-/* FOOTER */
 .footer{
 background:#0a2540;color:#fff;padding:40px 20px;
 display:flex;flex-wrap:wrap;gap:20px;justify-content:center;
 }
 
-.footer-box{
-flex:1;min-width:280px;
-}
+.footer-box{flex:1;min-width:280px;}
 
-/* FLOAT BUTTON */
 .whatsapp{
 position:fixed;bottom:20px;right:20px;
 background:#25D366;color:#fff;padding:15px;border-radius:50%;
@@ -84,9 +75,7 @@ text-decoration:none;
 <body>
 
 <header>
-
 <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhsBy1mYzL1KyNMM1uAK461QbnqSpCMqSrGgVZG4yIhcRv7UU5MTRi9VI9fcXmhUVX5NLX6uEbFbs5j_w2kLdmDdtxZkQWuNUhI6j6c69N3Ro4iBuT3gvPrPBxL7hnpGG9oye4g87AdPKJq2S5y9mSMjbOK7gkThVgc8c9g5TAZYggeCc52UN0si1aoFPDS/s552/Screenshot%202026-04-02%20165332.png" class="profile-img">
-
 <div class="name">Sunil Kumar</div>
 
 <h1>Dogra Wealth Distributor</h1>
@@ -94,12 +83,9 @@ text-decoration:none;
 
 <a class="btn" href="https://zerodha.com/open-account?c=ZMPYWZ">Open Demat Account</a>
 <a class="btn btn-blue" href="#">Start SIP (Coming Soon)</a>
-
 </header>
 
-<div class="banner">
-🚀 Start Investing Today – Build Wealth Smartly
-</div>
+<div class="banner">🚀 Start Investing Today – Build Wealth Smartly</div>
 
 <section>
 <h2>Financial Calculators</h2>
@@ -142,7 +128,6 @@ text-decoration:none;
 </div>
 </section>
 
-<!-- FOOTER -->
 <section class="footer">
 
 <div class="footer-box">
@@ -170,20 +155,22 @@ let sipChart, lumChart, swpChart;
 
 // SIP
 function calcSIP(){
-let P = sip_amount.value;
-let r = sip_rate.value/100/12;
-let n = sip_years.value*12;
+let P = Number(document.getElementById("sip_amount").value);
+let r = Number(document.getElementById("sip_rate").value)/100/12;
+let n = Number(document.getElementById("sip_years").value)*12;
+
+if(!P || !r || !n) return;
 
 let FV = P * (((Math.pow(1+r,n)-1)/r)*(1+r));
 let invested = P*n;
 let gain = FV - invested;
 
-sip_output.innerHTML =
+document.getElementById("sip_output").innerHTML =
 "Invested: ₹"+invested.toLocaleString()+"<br>Final: ₹"+Math.round(FV).toLocaleString()+"<br>Gain: ₹"+Math.round(gain).toLocaleString();
 
 if(sipChart) sipChart.destroy();
 
-sipChart = new Chart(sip_chart,{
+sipChart = new Chart(document.getElementById("sip_chart"),{
 type:'pie',
 data:{labels:['Invested','Gain'],datasets:[{data:[invested,gain]}]}
 });
@@ -191,42 +178,69 @@ data:{labels:['Invested','Gain'],datasets:[{data:[invested,gain]}]}
 
 // Lumpsum
 function calcLump(){
-let P = lum_amount.value;
-let r = lum_rate.value/100;
-let n = lum_years.value;
+let P = Number(document.getElementById("lum_amount").value);
+let r = Number(document.getElementById("lum_rate").value)/100;
+let n = Number(document.getElementById("lum_years").value);
+
+if(!P || !r || !n) return;
 
 let FV = P*Math.pow(1+r,n);
 let gain = FV-P;
 
-lum_output.innerHTML =
+document.getElementById("lum_output").innerHTML =
 "Invested: ₹"+P.toLocaleString()+"<br>Final: ₹"+Math.round(FV).toLocaleString()+"<br>Gain: ₹"+Math.round(gain).toLocaleString();
 
 if(lumChart) lumChart.destroy();
 
-lumChart = new Chart(lum_chart,{
+lumChart = new Chart(document.getElementById("lum_chart"),{
 type:'pie',
 data:{labels:['Invested','Gain'],datasets:[{data:[P,gain]}]}
 });
 }
 
-// SWP
+// SWP (FINAL FIXED)
 function calcSWP(){
-let corpus = swp_corpus.value;
-let withdrawal = swp_withdrawal.value;
-let rate = swp_rate.value/100/12;
+
+let corpus = Number(document.getElementById("swp_corpus").value);
+let withdrawal = Number(document.getElementById("swp_withdrawal").value);
+let rate = Number(document.getElementById("swp_rate").value)/100/12;
+
+let output = document.getElementById("swp_output");
+
+if(!corpus || !withdrawal || !rate){
+    output.innerHTML = "Please enter all values";
+    return;
+}
+
+if(withdrawal <= corpus * rate){
+    output.innerHTML = "⚠️ Withdrawal too low (investment will grow)";
+    return;
+}
+
+if(withdrawal >= corpus){
+    output.innerHTML = "⚠️ Withdrawal too high";
+    return;
+}
 
 let months = Math.log(withdrawal/(withdrawal - corpus*rate))/Math.log(1+rate);
-let totalWithdrawn = withdrawal * months;
-let remaining = corpus - totalWithdrawn;
 
-swp_output.innerHTML =
-"Duration: "+Math.round(months)+" months<br>Withdrawn: ₹"+Math.round(totalWithdrawn).toLocaleString();
+if(!isFinite(months)){
+    output.innerHTML = "Invalid input";
+    return;
+}
+
+let totalWithdrawn = withdrawal * months;
+let remaining = Math.max(0, corpus - totalWithdrawn);
+
+output.innerHTML =
+"Duration: "+Math.round(months)+" months<br>" +
+"Total Withdrawn: ₹"+Math.round(totalWithdrawn).toLocaleString();
 
 if(swpChart) swpChart.destroy();
 
-swpChart = new Chart(swp_chart,{
+swpChart = new Chart(document.getElementById("swp_chart"),{
 type:'pie',
-data:{labels:['Withdrawn','Remaining'],datasets:[{data:[totalWithdrawn,Math.max(0,remaining)]}]}
+data:{labels:['Withdrawn','Remaining'],datasets:[{data:[totalWithdrawn,remaining]}]}
 });
 }
 
