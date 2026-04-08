@@ -1,41 +1,40 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<title>SIP Calculator</title>
-<meta name="description" content="SIP return calculator India">
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-</head>
+<!-- COPY FULL INDEX FILE -->
+<!-- ONLY CHANGE CALCULATOR SECTION -->
 
-<body>
+<section>
+<h2>SIP Calculator</h2>
 
-<!-- COPY HEADER + LEAD + FOOTER EXACT SAME FROM index.html -->
-
-<h2 style="text-align:center">SIP Calculator</h2>
+<div class="services">
 
 <div class="card">
-<input id="amt" placeholder="Monthly Investment">
-<input id="rate" placeholder="Return %">
-<input id="yrs" placeholder="Years">
-<button onclick="calc()">Calculate</button>
-<p id="out"></p>
-<canvas id="chart"></canvas>
+<h3>SIP Calculator</h3>
+<input type="number" id="sip_amount" placeholder="Monthly Investment">
+<input type="number" id="sip_rate" placeholder="Expected Return Rate % (p.a.)">
+<input type="number" id="sip_years" placeholder="SIP Years">
+<button class="btn" onclick="calcSIP()">Calculate</button>
+<p class="result" id="sip_output"></p>
+<canvas id="sip_chart"></canvas>
 </div>
 
-<script>
-let chart;
-function calc(){
-let P=amt.value,r=rate.value/100/12,n=yrs.value*12;
-let FV=P*(((Math.pow(1+r,n)-1)/r)*(1+r));
-out.innerHTML="Final ₹"+Math.round(FV);
+</div>
 
-if(chart) chart.destroy();
-chart=new Chart(chart,{
-type:'pie',
-data:{labels:['Invested','Gain'],datasets:[{data:[P*n,FV-(P*n)]}]}
-});
+<div style="margin-top:30px;">
+<a class="btn" href="index.html">Lumpsum</a>
+<a class="btn" href="swp.html">SWP</a>
+<a class="btn" href="inflation.html">Inflation</a>
+</div>
+
+</section>
+
+<script>
+let sipChart;
+
+function calcSIP(){
+let P=Number(sip_amount.value),r=Number(sip_rate.value)/100/12,n=Number(sip_years.value)*12;
+if(!P||!r||!n)return;
+let FV=P*(((Math.pow(1+r,n)-1)/r)*(1+r)),invested=P*n,gain=FV-invested;
+sip_output.innerHTML="Invested: ₹"+invested.toLocaleString()+"<br>Final: ₹"+Math.round(FV).toLocaleString();
+if(sipChart)sipChart.destroy();
+sipChart=new Chart(sip_chart,{type:'pie',data:{labels:['Invested','Gain'],datasets:[{data:[invested,gain]}]}});
 }
 </script>
-
-</body>
-</html>
