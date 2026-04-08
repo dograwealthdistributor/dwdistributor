@@ -1,36 +1,48 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<title>SWP Calculator</title>
-</head>
-
-<body>
-
+<section>
 <h2>SWP Calculator</h2>
 
-<input id="c" placeholder="Investment">
-<input id="w" placeholder="Monthly Income">
-<input id="r" placeholder="Return %">
-<input id="y" placeholder="Years">
+<div class="services">
 
-<button onclick="calc()">Calculate</button>
-<p id="out"></p>
+<div class="card">
+<h3>SWP Calculator</h3>
+<input type="number" id="swp_corpus" placeholder="Total Investment">
+<input type="number" id="swp_withdrawal" placeholder="Withdrawal per Month">
+<input type="number" id="swp_rate" placeholder="Expected Return Rate % (p.a.)">
+<input type="number" id="swp_years" placeholder="Income Time Period (Years)">
+<button class="btn" onclick="calcSWP()">Calculate</button>
+<p class="result" id="swp_output"></p>
+<p class="result" id="swp_safe"></p>
+<canvas id="swp_chart"></canvas>
+</div>
+
+</div>
+
+<div style="margin-top:30px;">
+<a class="btn" href="index.html">Lumpsum</a>
+<a class="btn" href="sip.html">SIP</a>
+<a class="btn" href="inflation.html">Inflation</a>
+</div>
+
+</section>
 
 <script>
-function calc(){
-let c1=c.value,w1=w.value,r1=r.value/100/12,y1=y.value*12;
-let bal=c1,total=0;
+let swpChart;
 
-for(let i=0;i<y1;i++){
-bal*=1+r1;
-bal-=w1;
-total+=w1;
+function calcSWP(){
+let corpus=Number(swp_corpus.value),withdrawal=Number(swp_withdrawal.value),rate=Number(swp_rate.value)/100/12,years=Number(swp_years.value);
+if(!corpus||!withdrawal||!rate||!years)return;
+let months=years*12,balance=corpus,total=0;
+
+for(let i=0;i<months;i++){
+balance*=1+rate;
+if(balance<withdrawal){total+=balance;balance=0;break;}
+balance-=withdrawal;total+=withdrawal;
 }
 
-out.innerHTML="Withdrawn ₹"+Math.round(total)+" Remaining ₹"+Math.round(bal);
+swp_output.innerHTML="Total Withdrawn: ₹"+Math.round(total).toLocaleString()+"<br>Remaining Corpus: ₹"+Math.round(balance).toLocaleString();
+swp_safe.innerHTML="Safe Withdrawal (4% Rule): ₹"+Math.round((corpus*0.04)/12).toLocaleString()+"/month";
+
+if(swpChart)swpChart.destroy();
+swpChart=new Chart(swp_chart,{type:'pie',data:{labels:['Withdrawn','Remaining'],datasets:[{data:[total,balance]}]}});
 }
 </script>
-
-</body>
-</html>
