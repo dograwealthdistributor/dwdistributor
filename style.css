@@ -56,10 +56,10 @@ display:flex;flex-wrap:wrap;justify-content:center;gap:20px;
 
 .card{
 background:#fff;padding:20px;width:320px;
-border-radius:15px;box-shadow:0 5px 20px rgba(0,0,0,0.08);
+border-radius:15px;box-shadow:0 5px 20px rgba(0,0,0,0.08); overflow:hidden;
 }
 
-.card input{width:100%;padding:8px;margin:5px;}
+.card input{width:100%;padding:8px;margin:5px 0; box-sizing:border-box;}
 
 .result{margin-top:10px;font-weight:bold;}
 
