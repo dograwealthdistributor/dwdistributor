@@ -4,9 +4,9 @@ let sipChart, lumChart, swpChart;
 
 // ===== SIP =====
 function calcSIP(){
-let P = Number(sip_amount.value);
-let r = Number(sip_rate.value)/100/12;
-let n = Number(sip_years.value)*12;
+let P = Number(document.getElementById("sip_amount").value);
+let r = Number(document.getElementById("sip_rate").value)/100/12;
+let n = Number(document.getElementById("sip_years").value)*12;
 
 if(!P || !r || !n) return;
 
@@ -14,74 +14,84 @@ let FV = P * (((Math.pow(1+r,n)-1)/r)*(1+r));
 let invested = P*n;
 let gain = FV - invested;
 
-let resultText =
-"Invested: ₹"+invested.toLocaleString()+" | Final: ₹"+Math.round(FV).toLocaleString();
+let output = document.getElementById("sip_output");
 
-sip_output.innerHTML = resultText +
-`<br><button class="btn" onclick="sendWhatsApp('SIP', ${P}, ${sip_rate.value}, ${sip_years.value}, ${Math.round(FV)})">Send to WhatsApp</button>`;
+output.innerHTML =
+"Invested: ₹"+invested.toLocaleString()+"<br>Final: ₹"+Math.round(FV).toLocaleString()+
+`<br><button class="btn" onclick="sendWhatsApp('SIP', ${P}, ${r*1200}, ${n/12}, ${Math.round(FV)})">Send to WhatsApp</button>`;
 
 if(sipChart) sipChart.destroy();
 
-sipChart = new Chart(sip_chart,{
+sipChart = new Chart(document.getElementById("sip_chart"),{
 type:'pie',
-data:{labels:['Invested','Gain'],datasets:[{data:[invested,gain]}]}
+data:{
+labels:['Invested','Gain'],
+datasets:[{data:[invested,gain]}]
+}
 });
 }
 
 // ===== LUMPSUM =====
 function calcLump(){
-let P = Number(lum_amount.value);
-let r = Number(lum_rate.value)/100;
-let n = Number(lum_years.value);
+let P = Number(document.getElementById("lum_amount").value);
+let r = Number(document.getElementById("lum_rate").value)/100;
+let n = Number(document.getElementById("lum_years").value);
 
 if(!P || !r || !n) return;
 
 let FV = P*Math.pow(1+r,n);
 let gain = FV-P;
 
-let resultText =
-"Invested: ₹"+P.toLocaleString()+" | Final: ₹"+Math.round(FV).toLocaleString();
+let output = document.getElementById("lum_output");
 
-lum_output.innerHTML = resultText +
-`<br><button class="btn" onclick="sendWhatsApp('Lumpsum', ${P}, ${lum_rate.value}, ${lum_years.value}, ${Math.round(FV)})">Send to WhatsApp</button>`;
+output.innerHTML =
+"Invested: ₹"+P.toLocaleString()+"<br>Final: ₹"+Math.round(FV).toLocaleString()+
+`<br><button class="btn" onclick="sendWhatsApp('Lumpsum', ${P}, ${r*100}, ${n}, ${Math.round(FV)})">Send to WhatsApp</button>`;
 
 if(lumChart) lumChart.destroy();
 
-lumChart = new Chart(lum_chart,{
+lumChart = new Chart(document.getElementById("lum_chart"),{
 type:'pie',
-data:{labels:['Invested','Gain'],datasets:[{data:[P,gain]}]}
+data:{
+labels:['Invested','Gain'],
+datasets:[{data:[P,gain]}]
+}
 });
 }
 
 // ===== SWP =====
 function calcSWP(){
-let corpus = Number(swp_corpus.value);
-let withdrawal = Number(swp_withdrawal.value);
-let rate = Number(swp_rate.value)/100/12;
+let corpus = Number(document.getElementById("swp_corpus").value);
+let withdrawal = Number(document.getElementById("swp_withdrawal").value);
+let rate = Number(document.getElementById("swp_rate").value)/100/12;
 
 if(!corpus || !withdrawal || !rate) return;
 
 let months = Math.log(withdrawal/(withdrawal - corpus*rate))/Math.log(1+rate);
 let totalWithdrawn = withdrawal * months;
 
-let resultText =
-"Duration: "+Math.round(months)+" months | Withdrawn: ₹"+Math.round(totalWithdrawn).toLocaleString();
+let output = document.getElementById("swp_output");
 
-swp_output.innerHTML = resultText +
-`<br><button class="btn" onclick="sendWhatsApp('SWP', ${corpus}, ${swp_rate.value}, 'Monthly '+${withdrawal}, ${Math.round(totalWithdrawn)})">Send to WhatsApp</button>`;
+output.innerHTML =
+"Duration: "+Math.round(months)+" months<br>Withdrawn: ₹"+Math.round(totalWithdrawn).toLocaleString()+
+`<br><button class="btn" onclick="sendWhatsApp('SWP', ${corpus}, ${rate*1200}, 'Monthly '+${withdrawal}, ${Math.round(totalWithdrawn)})">Send to WhatsApp</button>`;
 
 if(swpChart) swpChart.destroy();
 
-swpChart = new Chart(swp_chart,{
+swpChart = new Chart(document.getElementById("swp_chart"),{
 type:'pie',
-data:{labels:['Withdrawn'],datasets:[{data:[totalWithdrawn]}]}
+data:{
+labels:['Withdrawn'],
+datasets:[{data:[totalWithdrawn]}]
+}
 });
 }
 
-// ===== WHATSAPP FUNCTION (FIXED) =====
+// ===== WHATSAPP =====
 function sendWhatsApp(type, amount, rate, duration, result){
 
-let message = "Hi Sunil Ji,\n" +
+let message =
+"Hi Sunil Ji,\n" +
 "I used your " + type + " calculator:\n" +
 "Amount: ₹" + amount + "\n" +
 "Return: " + rate + "%\n" +
