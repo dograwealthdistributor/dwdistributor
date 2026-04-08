@@ -1,40 +1,28 @@
-<!DOCTYPE html>
-<html>
-<head>
-<title>SIP Calculator India</title>
-<meta name="description" content="SIP calculator to calculate mutual fund returns">
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-</head>
+<title>SIP Calculator | Dogra Wealth Distributor</title>
 
-<body style="text-align:center;font-family:Arial;">
+<meta name="description" content="Calculate SIP returns easily. Monthly investment planning tool.">
 
-<h2>SIP Calculator</h2>
+<!-- Keep SAME sidebar + layout -->
 
-<input id="amount" placeholder="Monthly Investment"><br>
-<input id="rate" placeholder="Return %"><br>
-<input id="years" placeholder="Years"><br>
+<!-- Replace only calculator card -->
 
-<button onclick="calc()">Calculate</button>
+<h3>SIP Calculator</h3>
 
-<p id="output"></p>
-<canvas id="chart"></canvas>
+<input type="number" id="amount" placeholder="Monthly Investment">
+<input type="number" id="rate" placeholder="Return %">
+<input type="number" id="years" placeholder="Years">
 
-<h3>How to Use</h3>
-<p>Enter monthly investment, return rate and years.</p>
+<button class="btn" onclick="calc()">Calculate</button>
 
 <script>
-let chart;
 function calc(){
-let P=amount.value,r=rate.value/100/12,n=years.value*12;
+let P=Number(amount.value);
+let r=Number(rate.value)/100/12;
+let n=Number(years.value)*12;
+
 let FV=P*(((Math.pow(1+r,n)-1)/r)*(1+r));
 let invested=P*n;
 
-output.innerHTML="Invested: ₹"+invested+" Final: ₹"+Math.round(FV);
-
-if(chart) chart.destroy();
-chart=new Chart(chart,{type:'pie',data:{labels:['Invested','Gain'],datasets:[{data:[invested,FV-invested]}]}});
+output.innerHTML="Invested: ₹"+invested.toLocaleString()+"<br>Final: ₹"+Math.round(FV).toLocaleString();
 }
 </script>
-
-</body>
-</html>
