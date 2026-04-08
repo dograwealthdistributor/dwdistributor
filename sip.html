@@ -1,28 +1,29 @@
-<title>SIP Calculator | Dogra Wealth Distributor</title>
+<!DOCTYPE html>
+<html>
+<head>
+<title>SIP Calculator</title>
+<meta name="description" content="SIP calculator India to calculate mutual fund returns.">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
 
-<meta name="description" content="Calculate SIP returns easily. Monthly investment planning tool.">
+<h2>SIP Calculator</h2>
 
-<!-- Keep SAME sidebar + layout -->
+<input id="amt" placeholder="Monthly Investment">
+<input id="rate" placeholder="Return %">
+<input id="yrs" placeholder="Years">
 
-<!-- Replace only calculator card -->
+<button onclick="calc()">Calculate</button>
 
-<h3>SIP Calculator</h3>
-
-<input type="number" id="amount" placeholder="Monthly Investment">
-<input type="number" id="rate" placeholder="Return %">
-<input type="number" id="years" placeholder="Years">
-
-<button class="btn" onclick="calc()">Calculate</button>
+<p id="out"></p>
 
 <script>
 function calc(){
-let P=Number(amount.value);
-let r=Number(rate.value)/100/12;
-let n=Number(years.value)*12;
-
+let P=amt.value,r=rate.value/100/12,n=yrs.value*12;
 let FV=P*(((Math.pow(1+r,n)-1)/r)*(1+r));
-let invested=P*n;
-
-output.innerHTML="Invested: ₹"+invested.toLocaleString()+"<br>Final: ₹"+Math.round(FV).toLocaleString();
+out.innerHTML="Final: ₹"+Math.round(FV);
 }
 </script>
+
+</body>
+</html>
