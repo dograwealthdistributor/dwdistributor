@@ -1,4 +1,11 @@
 <style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif;}
+body{background:#f5f7fa;color:#333;}
+
+header{
+background:linear-gradient(135deg,#0a2540,#007bff);
+color:#fff;text-align:center;padding:60px 20px;
+}
 .home-btn{
 position:fixed;
 bottom:80px;
@@ -9,13 +16,6 @@ padding:15px;
 border-radius:50%;
 text-decoration:none;
 font-size:18px;
-}
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif;}
-body{background:#f5f7fa;color:#333;}
-
-header{
-background:linear-gradient(135deg,#0a2540,#007bff);
-color:#fff;text-align:center;padding:60px 20px;
 }
 
 .btn{
