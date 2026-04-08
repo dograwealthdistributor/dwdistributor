@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Lumpsum Calculator | Dogra Wealth Distributor</title>
-<meta name="description" content="Calculate your lumpsum investment returns easily. Plan your wealth with Dogra Wealth Distributor.">
-<meta name="keywords" content="lumpsum calculator india, mutual fund lumpsum return, investment calculator india">
+<meta name="description" content="Calculate lumpsum investment returns easily.">
+<meta name="keywords" content="lumpsum calculator india, investment calculator">
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
@@ -19,43 +19,34 @@ background:linear-gradient(135deg,#0a2540,#007bff);
 color:#fff;text-align:center;padding:60px 20px;
 }
 
-.nav{
-margin-top:15px;
-}
 .nav a{
-margin:0 10px;
-color:#fff;
-text-decoration:none;
-font-weight:bold;
-}
-
-.btn{
-display:inline-block;margin:10px;padding:12px 25px;
-background:#25D366;color:#fff;border-radius:30px;text-decoration:none;
+margin:0 10px;color:#fff;text-decoration:none;font-weight:bold;
 }
 
 .banner{
-background:#ff9800;color:#fff;padding:20px;text-align:center;font-weight:bold;
+background:#ff9800;color:#fff;padding:15px;text-align:center;
 }
 
-.lead-section{padding:50px 20px;}
-.lead-box{max-width:900px;margin:auto;background:#fff;padding:30px;border-radius:15px;display:flex;gap:20px;}
-.lead-left{text-align:center;}
-.lead-img{width:120px;border-radius:50%;}
-.lead-right{flex:1;}
+.lead-section{padding:40px 20px;}
+.lead-box{
+max-width:900px;margin:auto;background:#fff;padding:25px;
+border-radius:15px;display:flex;flex-wrap:wrap;gap:20px;
+}
 
-section{padding:60px 20px;text-align:center;}
-
+.lead-img{width:110px;border-radius:50%;}
 .card{
-background:#fff;padding:20px;width:320px;margin:auto;
+background:#fff;padding:25px;width:320px;margin:auto;
 border-radius:15px;box-shadow:0 5px 20px rgba(0,0,0,0.08);
 }
 
-input{width:100%;padding:10px;margin:5px 0;}
-.result{margin-top:10px;font-weight:bold;}
+input{width:100%;padding:10px;margin:6px 0;}
+
+button{
+padding:10px 20px;background:#25D366;color:#fff;border:none;border-radius:20px;
+}
 
 .footer{
-background:#0a2540;color:#fff;padding:40px;text-align:center;
+background:#0a2540;color:#fff;padding:30px;text-align:center;
 }
 </style>
 </head>
@@ -67,71 +58,60 @@ background:#0a2540;color:#fff;padding:40px;text-align:center;
 <p>Turn Monthly Savings Into Future Freedom</p>
 
 <div class="nav">
+<a href="index.html">Lumpsum</a>
 <a href="sip.html">SIP</a>
 <a href="swp.html">SWP</a>
 <a href="inflation.html">Inflation</a>
 </div>
 </header>
 
-<div class="banner">🚀 Start Investing Today</div>
-  <div style="text-align:center;padding:20px;background:#fff;">
-<a href="index.html" class="btn-blue btn">Lumpsum</a>
-<a href="sip.html" class="btn-blue btn">SIP</a>
-<a href="swp.html" class="btn-blue btn">SWP</a>
-<a href="inflation.html" class="btn-blue btn">Inflation</a>
-</div>
+<div class="banner">🚀 Smart Investing Starts Here</div>
 
 <section class="lead-section">
 <div class="lead-box">
 
-<div class="lead-left">
+<div>
 <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhsBy1mYzL1KyNMM1uAK461QbnqSpCMqSrGgVZG4yIhcRv7UU5MTRi9VI9fcXmhUVX5NLX6uEbFbs5j_w2kLdmDdtxZkQWuNUhI6j6c69N3Ro4iBuT3gvPrPBxL7hnpGG9oye4g87AdPKJq2S5y9mSMjbOK7gkThVgc8c9g5TAZYggeCc52UN0si1aoFPDS/s552/Screenshot.png" class="lead-img">
-<div>Sunil Kumar</div>
+<p><b>Sunil Kumar</b></p>
 </div>
 
-<div class="lead-right">
-<h2>Start Your Investment</h2>
-<p>Account setup, execution support, simple process.</p>
-<a class="btn" href="https://wa.me/919463665032">Chat on WhatsApp</a>
+<div>
+<h2>Start Your Investment Easily</h2>
+<p>Get support for account setup & execution.</p>
+<a href="https://wa.me/919463665032">👉 WhatsApp Now</a>
 </div>
 
 </div>
 </section>
 
-<section>
+<section style="text-align:center;padding:40px;">
 <h2>Lumpsum Calculator</h2>
 
 <div class="card">
-<input type="number" id="amount" placeholder="Investment">
-<input type="number" id="rate" placeholder="Return %">
-<input type="number" id="years" placeholder="Years">
+<input id="amount" placeholder="Investment">
+<input id="rate" placeholder="Return %">
+<input id="years" placeholder="Years">
 <button onclick="calc()">Calculate</button>
-
-<p class="result" id="output"></p>
+<p id="out"></p>
 <canvas id="chart"></canvas>
 </div>
 
+<h3 style="margin-top:30px;">How to use</h3>
+<p>Enter amount, expected return and duration.</p>
+
 </section>
 
-<section>
-<h3>How to use</h3>
-<p>Enter investment, expected return, and time period to calculate future value.</p>
-</section>
-
-<div class="footer">
-<p>© Dogra Wealth Distributor</p>
-</div>
+<div class="footer">© Dogra Wealth Distributor</div>
 
 <script>
 let chart;
-
 function calc(){
 let P=amount.value,r=rate.value/100,n=years.value;
 let FV=P*Math.pow(1+r,n);
-output.innerHTML="Final: ₹"+Math.round(FV).toLocaleString();
+out.innerHTML="Final: ₹"+Math.round(FV).toLocaleString();
 
 if(chart) chart.destroy();
-chart=new Chart(chartEl=document.getElementById("chart"),{
+chart=new Chart(chart,{
 type:'pie',
 data:{labels:['Investment','Gain'],datasets:[{data:[P,FV-P]}]}
 });
