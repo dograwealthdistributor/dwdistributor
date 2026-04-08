@@ -185,8 +185,8 @@ target="_blank">
 <div class="card">
 <h3>SIP Calculator</h3>
 <input type="number" id="sip_amount" placeholder="Monthly Investment">
-<input type="number" id="sip_rate" placeholder="Expected Return (%)">
-<input type="number" id="sip_years" placeholder="Years">
+<input type="number" id="sip_rate" placeholder="Expected Return Rate % (p.a.)">
+<input type="number" id="sip_years" placeholder="SIP Years">
 <button class="btn" onclick="calcSIP()">Calculate</button>
 <p class="result" id="sip_output"></p>
 <canvas id="sip_chart"></canvas>
@@ -195,9 +195,9 @@ target="_blank">
 <!-- Lumpsum -->
 <div class="card">
 <h3>FD/Lumpsum Calculator</h3>
-<input type="number" id="lum_amount" placeholder="Investment">
-<input type="number" id="lum_rate" placeholder="Expected Return (%)">
-<input type="number" id="lum_years" placeholder="Years">
+<input type="number" id="lum_amount" placeholder="Total Investment">
+<input type="number" id="lum_rate" placeholder="Expected Return Rate % (p.a.)">
+<input type="number" id="lum_years" placeholder="Time Period (Years)">
 <button class="btn" onclick="calcLump()">Calculate</button>
 <p class="result" id="lum_output"></p>
 <canvas id="lum_chart"></canvas>
@@ -206,10 +206,10 @@ target="_blank">
 <!-- SWP -->
 <div class="card">
 <h3>SWP Calculator</h3>
-<input type="number" id="swp_corpus" placeholder="Initial Corpus">
-<input type="number" id="swp_withdrawal" placeholder="Monthly Withdrawal">
-<input type="number" id="swp_rate" placeholder="Expected Return (%)">
-<input type="number" id="swp_years" placeholder="Income Duration (Years)">
+<input type="number" id="swp_corpus" placeholder="Total Investment">
+<input type="number" id="swp_withdrawal" placeholder="Withdrawal per Month">
+<input type="number" id="swp_rate" placeholder="Expected Return Rate % (p.a.)">
+<input type="number" id="swp_years" placeholder="Income Time Period (Years)">
 <button class="btn" onclick="calcSWP()">Calculate</button>
 <p class="result" id="swp_output"></p>
 <p class="result" id="swp_safe"></p>
