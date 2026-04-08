@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SWP Goal Calculator</title>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+<h1>Dogra Wealth Distributor</h1>
+<p>SWP Goal Calculator</p>
+</header>
+
+<div class="banner">
+<div class="nav">
+<a href="index.html">🏠 Home</a>
+<a href="sip.html">SIP</a>
+<a href="swp.html">SWP</a>
+<a href="inflation.html">Inflation</a>
+</div>
+<div class="banner-text">💰 Plan Your Monthly Income Smartly</div>
+</div>
+
+<section>
+<h2>Required Corpus for Monthly Income</h2>
+
+<div class="services">
+
+<div class="card">
+<h3>SWP Goal Calculator</h3>
+
+<input type="number" id="monthly_income" placeholder="Monthly Income Required">
+<input type="number" id="rate" placeholder="Expected Return % (optional)">
+
+<button class="btn" onclick="calcGoal()">Calculate</button>
+
+<p class="result" id="output"></p>
+<canvas id="chart"></canvas>
+
+</div>
+
+</div>
+
+</section>
+
+<script>
+let chart;
+
+function calcGoal(){
+
+let monthly = Number(monthly_income.value);
+
+if(!monthly) return;
+
+// Annual withdrawal
+let annual = monthly * 12;
+
+// 4% rule corpus
+let corpus = annual / 0.04;
+
+output.innerHTML =
+"Required Corpus: ₹" + Math.round(corpus).toLocaleString() +
+"<br>Based on Safe 4% Withdrawal Rule";
+
+if(chart) chart.destroy();
+
+chart = new Chart(document.getElementById("chart"),{
+type:'pie',
+data:{
+labels:['Annual Withdrawal','Corpus'],
+datasets:[{
+data:[annual,corpus]
+}]
+}
+});
+
+}
+</script>
+
+</body>
+</html>
