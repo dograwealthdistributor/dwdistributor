@@ -1,107 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dogra Wealth Distributor</title>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif;}
+body{background:#f5f7fa;color:#333;}
+
+header{
+background:linear-gradient(135deg,#0a2540,#007bff);
+color:#fff;text-align:center;padding:60px 20px;
+}
+
+/* PROFILE */
+.profile-img{
+width:120px;height:120px;
+border-radius:50%;
+border:4px solid #fff;
+object-fit:cover;
+margin-bottom:10px;
+}
+
+.name{
+font-size:18px;
+margin-bottom:10px;
+opacity:0.9;
+}
+
+.btn{
+display:inline-block;margin:10px;padding:12px 25px;
+background:#25D366;color:#fff;border-radius:30px;
+text-decoration:none;font-weight:bold;border:none;cursor:pointer;
+}
+
+.btn-blue{background:#007bff;}
+
+section{padding:60px 20px;text-align:center;}
+
+.services{
+display:flex;flex-wrap:wrap;justify-content:center;gap:20px;
+}
+
+.card{
+background:#fff;padding:20px;width:280px;border-radius:15px;
+box-shadow:0 5px 20px rgba(0,0,0,0.08);
+}
+
+.card input{
+width:100%;padding:8px;margin:5px 0;
+}
+
+.result{margin-top:10px;font-weight:bold;}
+
+canvas{margin-top:10px;}
+
+.banner{
+background:#ff9800;color:#fff;padding:20px;text-align:center;font-weight:bold;
+}
+
+/* FOOTER */
+.footer{
+background:#0a2540;color:#fff;padding:40px 20px;
+display:flex;flex-wrap:wrap;gap:20px;justify-content:center;
+}
+
+.footer-box{
+flex:1;min-width:280px;
+}
+
+/* FLOAT BUTTON */
+.whatsapp{
+position:fixed;bottom:20px;right:20px;
+background:#25D366;color:#fff;padding:15px;border-radius:50%;
+text-decoration:none;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+<img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhsBy1mYzL1KyNMM1uAK461QbnqSpCMqSrGgVZG4yIhcRv7UU5MTRi9VI9fcXmhUVX5NLX6uEbFbs5j_w2kLdmDdtxZkQWuNUhI6j6c69N3Ro4iBuT3gvPrPBxL7hnpGG9oye4g87AdPKJq2S5y9mSMjbOK7gkThVgc8c9g5TAZYggeCc52UN0si1aoFPDS/s552/Screenshot%202026-04-02%20165332.png" class="profile-img">
+
+<div class="name">Sunil Kumar</div>
+
+<h1>Dogra Wealth Distributor</h1>
+<p>Turn Monthly Savings Into Future Freedom</p>
+
+<a class="btn" href="https://zerodha.com/open-account?c=ZMPYWZ">Open Demat Account</a>
+<a class="btn btn-blue" href="#">Start SIP (Coming Soon)</a>
+
+</header>
+
+<div class="banner">
+🚀 Start Investing Today – Build Wealth Smartly
+</div>
+
+<section>
+<h2>Financial Calculators</h2>
+
+<div class="services">
+
+<!-- SIP -->
+<div class="card">
+<h3>SIP Calculator</h3>
+<input type="number" id="sip_amount" placeholder="Monthly Investment">
+<input type="number" id="sip_rate" placeholder="Return (%)">
+<input type="number" id="sip_years" placeholder="Years">
+<button class="btn" onclick="calcSIP()">Calculate</button>
+<p class="result" id="sip_output"></p>
+<canvas id="sip_chart"></canvas>
+</div>
+
+<!-- Lumpsum -->
+<div class="card">
+<h3>Lumpsum Calculator</h3>
+<input type="number" id="lum_amount" placeholder="Investment">
+<input type="number" id="lum_rate" placeholder="Return (%)">
+<input type="number" id="lum_years" placeholder="Years">
+<button class="btn" onclick="calcLump()">Calculate</button>
+<p class="result" id="lum_output"></p>
+<canvas id="lum_chart"></canvas>
+</div>
+
+<!-- SWP -->
+<div class="card">
+<h3>SWP Calculator</h3>
+<input type="number" id="swp_corpus" placeholder="Initial Corpus">
+<input type="number" id="swp_withdrawal" placeholder="Monthly Withdrawal">
+<input type="number" id="swp_rate" placeholder="Return (%)">
+<button class="btn" onclick="calcSWP()">Calculate</button>
+<p class="result" id="swp_output"></p>
+<canvas id="swp_chart"></canvas>
+</div>
+
+</div>
+</section>
+
+<!-- FOOTER -->
+<section class="footer">
+
+<div class="footer-box">
+<h2>Contact</h2>
+<p><strong>Sunil Kumar</strong></p>
+<p>AMFI Registered Mutual Fund Distributor: ARN-346191</p>
+<p>📞 +91-9463665032</p>
+<p>📍 Opp. Guru Nanak Park, Bath Wali Gali, Jail Road, Gurdaspur</p>
+<p>Punjab. 143521</p>
+<a class="btn" href="https://wa.me/919463665032">Chat on WhatsApp</a>
+</div>
+
+<div class="footer-box">
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3381.8935703761654!2d75.4038111!3d32.0450721!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391b927644f35e57%3A0x261b24146e966311!2sTara%20Chand%20Market%20Rd%2C%20Shaheed%20Bhagat%20Singh%20Nagar%2C%20Gurdaspur%2C%20Babowal%2C%20Punjab%20143521!5e0!3m2!1sen!2sin!4v1775408821250!5m2!1sen!2sin"
+width="100%" height="300" style="border:0;border-radius:10px;" loading="lazy"></iframe>
+</div>
+
+</section>
+
+<a href="https://wa.me/919463665032" class="whatsapp">💬</a>
+
 <script>
 
 let sipChart, lumChart, swpChart;
 
-// ===== SIP =====
+// SIP
 function calcSIP(){
-let P = Number(document.getElementById("sip_amount").value);
-let r = Number(document.getElementById("sip_rate").value)/100/12;
-let n = Number(document.getElementById("sip_years").value)*12;
-
-if(!P || !r || !n) return;
+let P = sip_amount.value;
+let r = sip_rate.value/100/12;
+let n = sip_years.value*12;
 
 let FV = P * (((Math.pow(1+r,n)-1)/r)*(1+r));
 let invested = P*n;
 let gain = FV - invested;
 
-let output = document.getElementById("sip_output");
-
-output.innerHTML =
-"Invested: ₹"+invested.toLocaleString()+"<br>Final: ₹"+Math.round(FV).toLocaleString()+
-`<br><button class="btn" onclick="sendWhatsApp('SIP', ${P}, ${r*1200}, ${n/12}, ${Math.round(FV)})">Send to WhatsApp</button>`;
+sip_output.innerHTML =
+"Invested: ₹"+invested.toLocaleString()+"<br>Final: ₹"+Math.round(FV).toLocaleString()+"<br>Gain: ₹"+Math.round(gain).toLocaleString();
 
 if(sipChart) sipChart.destroy();
 
-sipChart = new Chart(document.getElementById("sip_chart"),{
+sipChart = new Chart(sip_chart,{
 type:'pie',
-data:{
-labels:['Invested','Gain'],
-datasets:[{data:[invested,gain]}]
-}
+data:{labels:['Invested','Gain'],datasets:[{data:[invested,gain]}]}
 });
 }
 
-// ===== LUMPSUM =====
+// Lumpsum
 function calcLump(){
-let P = Number(document.getElementById("lum_amount").value);
-let r = Number(document.getElementById("lum_rate").value)/100;
-let n = Number(document.getElementById("lum_years").value);
-
-if(!P || !r || !n) return;
+let P = lum_amount.value;
+let r = lum_rate.value/100;
+let n = lum_years.value;
 
 let FV = P*Math.pow(1+r,n);
 let gain = FV-P;
 
-let output = document.getElementById("lum_output");
-
-output.innerHTML =
-"Invested: ₹"+P.toLocaleString()+"<br>Final: ₹"+Math.round(FV).toLocaleString()+
-`<br><button class="btn" onclick="sendWhatsApp('Lumpsum', ${P}, ${r*100}, ${n}, ${Math.round(FV)})">Send to WhatsApp</button>`;
+lum_output.innerHTML =
+"Invested: ₹"+P.toLocaleString()+"<br>Final: ₹"+Math.round(FV).toLocaleString()+"<br>Gain: ₹"+Math.round(gain).toLocaleString();
 
 if(lumChart) lumChart.destroy();
 
-lumChart = new Chart(document.getElementById("lum_chart"),{
+lumChart = new Chart(lum_chart,{
 type:'pie',
-data:{
-labels:['Invested','Gain'],
-datasets:[{data:[P,gain]}]
-}
+data:{labels:['Invested','Gain'],datasets:[{data:[P,gain]}]}
 });
 }
 
-// ===== SWP =====
+// SWP
 function calcSWP(){
-let corpus = Number(document.getElementById("swp_corpus").value);
-let withdrawal = Number(document.getElementById("swp_withdrawal").value);
-let rate = Number(document.getElementById("swp_rate").value)/100/12;
-
-if(!corpus || !withdrawal || !rate) return;
+let corpus = swp_corpus.value;
+let withdrawal = swp_withdrawal.value;
+let rate = swp_rate.value/100/12;
 
 let months = Math.log(withdrawal/(withdrawal - corpus*rate))/Math.log(1+rate);
 let totalWithdrawn = withdrawal * months;
+let remaining = corpus - totalWithdrawn;
 
-let output = document.getElementById("swp_output");
-
-output.innerHTML =
-"Duration: "+Math.round(months)+" months<br>Withdrawn: ₹"+Math.round(totalWithdrawn).toLocaleString()+
-`<br><button class="btn" onclick="sendWhatsApp('SWP', ${corpus}, ${rate*1200}, 'Monthly '+${withdrawal}, ${Math.round(totalWithdrawn)})">Send to WhatsApp</button>`;
+swp_output.innerHTML =
+"Duration: "+Math.round(months)+" months<br>Withdrawn: ₹"+Math.round(totalWithdrawn).toLocaleString();
 
 if(swpChart) swpChart.destroy();
 
-swpChart = new Chart(document.getElementById("swp_chart"),{
+swpChart = new Chart(swp_chart,{
 type:'pie',
-data:{
-labels:['Withdrawn'],
-datasets:[{data:[totalWithdrawn]}]
-}
+data:{labels:['Withdrawn','Remaining'],datasets:[{data:[totalWithdrawn,Math.max(0,remaining)]}]}
 });
 }
 
-// ===== WHATSAPP =====
-function sendWhatsApp(type, amount, rate, duration, result){
-
-let message =
-"Hi Sunil Ji,\n" +
-"I used your " + type + " calculator:\n" +
-"Amount: ₹" + amount + "\n" +
-"Return: " + rate + "%\n" +
-"Duration: " + duration + "\n" +
-"Result: ₹" + result + "\n" +
-"Please guide me further.";
-
-let url = "https://wa.me/919463665032?text=" + encodeURIComponent(message);
-
-window.open(url, '_blank');
-}
-
 </script>
+
+</body>
+</html>
