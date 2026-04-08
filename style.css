@@ -88,4 +88,35 @@ position:fixed;bottom:20px;right:20px;
 background:#25D366;color:#fff;padding:15px;border-radius:50%;
 text-decoration:none;
 }
+/* NAVIGATION FIX */
+.nav{
+margin-top:20px;
+text-align:center;
+}
+
+.nav a{
+color:#ffffff;
+text-decoration:none;
+margin:0 15px;
+font-weight:500;
+font-size:15px;
+position:relative;
+display:inline-block;
+}
+
+/* underline animation */
+.nav a::after{
+content:'';
+position:absolute;
+width:0%;
+height:2px;
+left:0;
+bottom:-5px;
+background:#ffffff;
+transition:0.3s ease;
+}
+
+.nav a:hover::after{
+width:100%;
+}
 </style>
