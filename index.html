@@ -1,5 +1,134 @@
 <!-- KEEP YOUR FULL CODE SAME UNTIL calculator section -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dogra Wealth Distributor</title>
 
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif;}
+body{background:#f5f7fa;color:#333;}
+
+header{
+background:linear-gradient(135deg,#0a2540,#007bff);
+color:#fff;text-align:center;padding:60px 20px;
+}
+
+.btn{
+display:inline-block;margin:10px;padding:12px 25px;
+background:#25D366;color:#fff;border-radius:30px;
+text-decoration:none;font-weight:bold;border:none;cursor:pointer;
+}
+
+.btn-blue{background:#007bff;}
+
+.banner{
+background:#ff9800;color:#fff;padding:20px;text-align:center;font-weight:bold;
+}
+
+.lead-section{padding:50px 20px;}
+
+.lead-box{
+max-width:900px;margin:auto;background:#ffffff;padding:30px;
+border-radius:15px;box-shadow:0 5px 20px rgba(0,0,0,0.08);
+display:flex;flex-wrap:wrap;align-items:center;gap:20px;
+}
+
+.lead-left{flex:1;min-width:200px;text-align:center;}
+
+.lead-img{
+width:120px;height:120px;border-radius:50%;
+object-fit:cover;border:4px solid #007bff;
+}
+
+.lead-name{margin-top:10px;font-weight:bold;}
+
+.lead-right{flex:2;min-width:250px;}
+
+.lead-right h2{margin-bottom:10px;color:#0a2540;}
+
+.lead-right p{margin-bottom:15px;color:#555;font-size:15px;}
+
+.btn-whatsapp{
+background:#25D366;color:#fff;padding:14px 28px;
+border-radius:30px;text-decoration:none;font-weight:bold;
+display:inline-block;
+}
+
+section{padding:60px 20px;text-align:center;}
+
+.services{
+display:flex;flex-wrap:wrap;justify-content:center;gap:20px;
+}
+
+.card{
+background:#fff;padding:20px;width:260px;
+border-radius:15px;box-shadow:0 5px 20px rgba(0,0,0,0.08);
+}
+
+.card input{width:100%;padding:8px;margin:5px 0;}
+
+.result{margin-top:10px;font-weight:bold;}
+
+canvas{margin-top:10px;}
+
+.footer{
+background:#0a2540;color:#fff;padding:40px 20px;
+display:flex;flex-wrap:wrap;gap:20px;justify-content:center;
+}
+
+.footer-box{flex:1;min-width:280px;}
+
+.whatsapp{
+position:fixed;bottom:20px;right:20px;
+background:#25D366;color:#fff;padding:15px;border-radius:50%;
+text-decoration:none;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>Dogra Wealth Distributor</h1>
+<p>Turn Monthly Savings Into Future Freedom</p>
+
+<a class="btn" href="https://zerodha.com/open-account?c=ZMPYWZ">Open Demat Account</a>
+<a class="btn btn-blue" href="#">Start SIP (Coming Soon)</a>
+</header>
+
+<div class="banner">🚀 Start Investing Today – Build Wealth Smartly</div>
+
+<section class="lead-section">
+<div class="lead-box">
+
+<div class="lead-left">
+<img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhsBy1mYzL1KyNMM1uAK461QbnqSpCMqSrGgVZG4yIhcRv7UU5MTRi9VI9fcXmhUVX5NLX6uEbFbs5j_w2kLdmDdtxZkQWuNUhI6j6c69N3Ro4iBuT3gvPrPBxL7hnpGG9oye4g87AdPKJq2S5y9mSMjbOK7gkThVgc8c9g5TAZYggeCc52UN0si1aoFPDS/s552/Screenshot%202026-04-02%20165332.png" class="lead-img">
+<div class="lead-name">Sunil Kumar</div>
+</div>
+
+<div class="lead-right">
+<h2>Start Your Mutual Fund Investment Easily</h2>
+<p>Get help with account setup, fund access, and smooth investment execution.</p>
+
+<p>
+✔ Free Account Setup<br>
+✔ SIP & Lumpsum Execution Support<br>
+✔ Simple & Hassle-Free Process
+</p>
+
+<a class="btn-whatsapp"
+href="https://wa.me/919463665032?text=Hi%20Sunil%20Ji,%20I%20want%20to%20start%20mutual%20fund%20investment.%20Please%20assist%20me."
+target="_blank">
+👉 Chat with Me on WhatsApp Now
+</a>
+
+</div>
+</div>
+</section>
 <section>
 <h2>Financial Calculators</h2>
 
@@ -24,8 +153,26 @@
 <a class="btn" href="swp.html">SWP Calculator</a>
 <a class="btn" href="inflation.html">Inflation Calculator</a>
 </div>
+  
 
 </section>
+  <section class="footer">
+<div class="footer-box">
+<h2>Contact</h2>
+<p><strong>Sunil Kumar</strong></p>
+<p>AMFI Registered Mutual Fund Distributor: ARN-346191</p>
+<p>📞 +91-9463665032</p>
+<p>📍 Opp. Guru Nanak Park, Gurdaspur, Punjab</p>
+<a class="btn" href="https://wa.me/919463665032">Chat on WhatsApp</a>
+</div>
+
+<div class="footer-box">
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3381.8935703761654!2d75.4038111!3d32.0450721!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391b927644f35e57%3A0x261b24146e966311!2sTara%20Chand%20Market%20Rd%2C%20Gurdaspur%2C%20Punjab%20143521!5e0!3m2!1sen!2sin"
+width="100%" height="300" style="border:0;border-radius:10px;" loading="lazy"></iframe>
+</div>
+</section>
+
+<a href="https://wa.me/919463665032" class="whatsapp">💬</a>
 
 <script>
 let lumChart;
