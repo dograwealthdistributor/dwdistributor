@@ -90,9 +90,16 @@ background:#25D366;color:#fff;padding:15px;border-radius:50%;
 text-decoration:none;
 }
 /* NAVIGATION FIX */
-.nav{
-margin-top:20px;
+.banner{
+background:#ff9800;
+color:#fff;
+padding:15px 10px;
 text-align:center;
+}
+
+/* NAVIGATION */
+.nav{
+margin-bottom:10px;
 }
 
 .nav a{
@@ -119,5 +126,10 @@ transition:0.3s ease;
 
 .nav a:hover::after{
 width:100%;
+}
+
+/* TEXT BELOW NAV */
+.banner-text{
+font-weight:bold;
 }
 </style>
