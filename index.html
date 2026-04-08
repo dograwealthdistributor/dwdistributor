@@ -28,72 +28,35 @@ text-decoration:none;font-weight:bold;border:none;cursor:pointer;
 background:#ff9800;color:#fff;padding:20px;text-align:center;font-weight:bold;
 }
 
-/* 🔥 LEAD SECTION IMPROVED */
-.lead-section{
-padding:50px 20px;
-}
+.lead-section{padding:50px 20px;}
 
 .lead-box{
-max-width:900px;
-margin:auto;
-background:#ffffff;
-padding:30px;
-border-radius:15px;
-box-shadow:0 5px 20px rgba(0,0,0,0.08);
-display:flex;
-flex-wrap:wrap;
-align-items:center;
-gap:20px;
+max-width:900px;margin:auto;background:#ffffff;padding:30px;
+border-radius:15px;box-shadow:0 5px 20px rgba(0,0,0,0.08);
+display:flex;flex-wrap:wrap;align-items:center;gap:20px;
 }
 
-/* LEFT SIDE */
-.lead-left{
-flex:1;
-min-width:200px;
-text-align:center;
-}
+.lead-left{flex:1;min-width:200px;text-align:center;}
 
 .lead-img{
-width:120px;
-height:120px;
-border-radius:50%;
-object-fit:cover;
-border:4px solid #007bff;
+width:120px;height:120px;border-radius:50%;
+object-fit:cover;border:4px solid #007bff;
 }
 
-.lead-name{
-margin-top:10px;
-font-weight:bold;
-}
+.lead-name{margin-top:10px;font-weight:bold;}
 
-/* RIGHT SIDE */
-.lead-right{
-flex:2;
-min-width:250px;
-}
+.lead-right{flex:2;min-width:250px;}
 
-.lead-right h2{
-margin-bottom:10px;
-color:#0a2540;
-}
+.lead-right h2{margin-bottom:10px;color:#0a2540;}
 
-.lead-right p{
-margin-bottom:15px;
-color:#555;
-font-size:15px;
-}
+.lead-right p{margin-bottom:15px;color:#555;font-size:15px;}
 
 .btn-whatsapp{
-background:#25D366;
-color:#fff;
-padding:14px 28px;
-border-radius:30px;
-text-decoration:none;
-font-weight:bold;
+background:#25D366;color:#fff;padding:14px 28px;
+border-radius:30px;text-decoration:none;font-weight:bold;
 display:inline-block;
 }
 
-/* CALCULATORS */
 section{padding:60px 20px;text-align:center;}
 
 .services{
@@ -101,19 +64,16 @@ display:flex;flex-wrap:wrap;justify-content:center;gap:20px;
 }
 
 .card{
-background:#fff;padding:20px;width:280px;border-radius:15px;
-box-shadow:0 5px 20px rgba(0,0,0,0.08);
+background:#fff;padding:20px;width:260px;
+border-radius:15px;box-shadow:0 5px 20px rgba(0,0,0,0.08);
 }
 
-.card input{
-width:100%;padding:8px;margin:5px 0;
-}
+.card input{width:100%;padding:8px;margin:5px 0;}
 
 .result{margin-top:10px;font-weight:bold;}
 
 canvas{margin-top:10px;}
 
-/* FOOTER */
 .footer{
 background:#0a2540;color:#fff;padding:40px 20px;
 display:flex;flex-wrap:wrap;gap:20px;justify-content:center;
@@ -141,9 +101,7 @@ text-decoration:none;
 
 <div class="banner">🚀 Start Investing Today – Build Wealth Smartly</div>
 
-<!-- 🔥 LEAD SECTION WITH YOUR IMAGE -->
 <section class="lead-section">
-
 <div class="lead-box">
 
 <div class="lead-left">
@@ -153,10 +111,7 @@ text-decoration:none;
 
 <div class="lead-right">
 <h2>Start Your Mutual Fund Investment Easily</h2>
-
-<p>
-Get help with account setup, fund access, and smooth investment execution.
-</p>
+<p>Get help with account setup, fund access, and smooth investment execution.</p>
 
 <p>
 ✔ Free Account Setup<br>
@@ -171,9 +126,7 @@ target="_blank">
 </a>
 
 </div>
-
 </div>
-
 </section>
 
 <section>
@@ -216,18 +169,28 @@ target="_blank">
 <canvas id="swp_chart"></canvas>
 </div>
 
+<!-- Inflation -->
+<div class="card">
+<h3>Inflation Adjusted</h3>
+<input type="number" id="inf_amount" placeholder="Total Investment">
+<input type="number" id="inf_rate" placeholder="Expected Return Rate % (p.a.)">
+<input type="number" id="inf_years" placeholder="Time Period (Years)">
+<input type="number" id="inf_inflation" value="6" placeholder="Inflation %">
+<button class="btn" onclick="calcInflation()">Calculate</button>
+<p class="result" id="inf_output"></p>
+<canvas id="inf_chart"></canvas>
+</div>
+
 </div>
 </section>
 
 <section class="footer">
-
 <div class="footer-box">
 <h2>Contact</h2>
 <p><strong>Sunil Kumar</strong></p>
 <p>AMFI Registered Mutual Fund Distributor: ARN-346191</p>
 <p>📞 +91-9463665032</p>
-<p>📍 Opp. Guru Nanak Park, Bath Wali Gali, Jail Road, Gurdaspur</p>
-<p>Punjab. 143521</p>
+<p>📍 Opp. Guru Nanak Park, Gurdaspur, Punjab</p>
 <a class="btn" href="https://wa.me/919463665032">Chat on WhatsApp</a>
 </div>
 
@@ -235,66 +198,49 @@ target="_blank">
 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3381.8935703761654!2d75.4038111!3d32.0450721!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391b927644f35e57%3A0x261b24146e966311!2sTara%20Chand%20Market%20Rd%2C%20Gurdaspur%2C%20Punjab%20143521!5e0!3m2!1sen!2sin"
 width="100%" height="300" style="border:0;border-radius:10px;" loading="lazy"></iframe>
 </div>
-
 </section>
 
 <a href="https://wa.me/919463665032" class="whatsapp">💬</a>
 
 <script>
-let sipChart, lumChart, swpChart;
+let sipChart, lumChart, swpChart, infChart;
 
 function calcSIP(){
-let P = Number(sip_amount.value);
-let r = Number(sip_rate.value)/100/12;
-let n = Number(sip_years.value)*12;
+let P=Number(sip_amount.value),r=Number(sip_rate.value)/100/12,n=Number(sip_years.value)*12;
 if(!P||!r||!n)return;
-
-let FV=P*(((Math.pow(1+r,n)-1)/r)*(1+r));
-let invested=P*n;
-let gain=FV-invested;
-
+let FV=P*(((Math.pow(1+r,n)-1)/r)*(1+r)),invested=P*n,gain=FV-invested;
 sip_output.innerHTML="Invested: ₹"+invested.toLocaleString()+"<br>Final: ₹"+Math.round(FV).toLocaleString();
-
-if(sipChart) sipChart.destroy();
+if(sipChart)sipChart.destroy();
 sipChart=new Chart(sip_chart,{type:'pie',data:{labels:['Invested','Gain'],datasets:[{data:[invested,gain]}]}});
 }
 
 function calcLump(){
-let P=Number(lum_amount.value);
-let r=Number(lum_rate.value)/100;
-let n=Number(lum_years.value);
+let P=Number(lum_amount.value),r=Number(lum_rate.value)/100,n=Number(lum_years.value);
 if(!P||!r||!n)return;
-
-let FV=P*Math.pow(1+r,n);
-let gain=FV-P;
-
+let FV=P*Math.pow(1+r,n),gain=FV-P;
 lum_output.innerHTML="Invested: ₹"+P.toLocaleString()+"<br>Final: ₹"+Math.round(FV).toLocaleString();
-
-if(lumChart) lumChart.destroy();
+if(lumChart)lumChart.destroy();
 lumChart=new Chart(lum_chart,{type:'pie',data:{labels:['Invested','Gain'],datasets:[{data:[P,gain]}]}});
 }
 
 function calcSWP(){
-let corpus=Number(swp_corpus.value);
-let withdrawal=Number(swp_withdrawal.value);
-let rate=Number(swp_rate.value)/100/12;
-let years=Number(swp_years.value);
-
+let corpus=Number(swp_corpus.value),withdrawal=Number(swp_withdrawal.value),rate=Number(swp_rate.value)/100/12,years=Number(swp_years.value);
 if(!corpus||!withdrawal||!rate||!years)return;
-
 let months=years*12,balance=corpus,total=0;
-
-for(let i=0;i<months;i++){
-balance*=1+rate;
-if(balance<withdrawal){total+=balance;balance=0;break;}
-balance-=withdrawal;total+=withdrawal;
-}
-
+for(let i=0;i<months;i++){balance*=1+rate;if(balance<withdrawal){total+=balance;balance=0;break;}balance-=withdrawal;total+=withdrawal;}
 swp_output.innerHTML="Total Withdrawn: ₹"+Math.round(total).toLocaleString()+"<br>Remaining Corpus: ₹"+Math.round(balance).toLocaleString();
 swp_safe.innerHTML="Safe Withdrawal (4% Rule): ₹"+Math.round((corpus*0.04)/12).toLocaleString()+"/month";
-
-if(swpChart) swpChart.destroy();
+if(swpChart)swpChart.destroy();
 swpChart=new Chart(swp_chart,{type:'pie',data:{labels:['Withdrawn','Remaining'],datasets:[{data:[total,balance]}]}});
+}
+
+function calcInflation(){
+let P=Number(inf_amount.value),r=Number(inf_rate.value)/100,n=Number(inf_years.value),i=Number(inf_inflation.value)/100;
+if(!P||!r||!n||!i)return;
+let FV=P*Math.pow(1+r,n),realFV=FV/Math.pow(1+i,n),gain=FV-P;
+inf_output.innerHTML="Future Value: ₹"+Math.round(FV).toLocaleString()+"<br>Real Value: ₹"+Math.round(realFV).toLocaleString();
+if(infChart)infChart.destroy();
+infChart=new Chart(inf_chart,{type:'pie',data:{labels:['Invested','Gain'],datasets:[{data:[P,gain]}]}});
 }
 </script>
 
