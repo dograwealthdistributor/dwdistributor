@@ -5,87 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Dogra Wealth Distributor</title>
 
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif;}
-body{background:#f5f7fa;color:#333;}
-
-header{
-background:linear-gradient(135deg,#0a2540,#007bff);
-color:#fff;text-align:center;padding:60px 20px;
-}
-
-.btn{
-display:inline-block;margin:10px;padding:12px 25px;
-background:#25D366;color:#fff;border-radius:30px;
-text-decoration:none;font-weight:bold;border:none;cursor:pointer;
-}
-
-.btn-blue{background:#007bff;}
-
-.banner{
-background:#ff9800;color:#fff;padding:20px;text-align:center;font-weight:bold;
-}
-
-.lead-section{padding:50px 20px;}
-
-.lead-box{
-max-width:900px;margin:auto;background:#ffffff;padding:30px;
-border-radius:15px;box-shadow:0 5px 20px rgba(0,0,0,0.08);
-display:flex;flex-wrap:wrap;align-items:center;gap:20px;
-}
-
-.lead-left{flex:1;min-width:200px;text-align:center;}
-
-.lead-img{
-width:120px;height:120px;border-radius:50%;
-object-fit:cover;border:4px solid #007bff;
-}
-
-.lead-name{margin-top:10px;font-weight:bold;}
-
-.lead-right{flex:2;min-width:250px;}
-
-.lead-right h2{margin-bottom:10px;color:#0a2540;}
-
-.lead-right p{margin-bottom:15px;color:#555;font-size:15px;}
-
-.btn-whatsapp{
-background:#25D366;color:#fff;padding:14px 28px;
-border-radius:30px;text-decoration:none;font-weight:bold;
-display:inline-block;
-}
-
-section{padding:60px 20px;text-align:center;}
-
-.services{
-display:flex;flex-wrap:wrap;justify-content:center;gap:20px;
-}
-
-.card{
-background:#fff;padding:20px;width:260px;
-border-radius:15px;box-shadow:0 5px 20px rgba(0,0,0,0.08);
-}
-
-.card input{width:100%;padding:8px;margin:5px 0;}
-
-.result{margin-top:10px;font-weight:bold;}
-
-canvas{margin-top:10px;}
-
-.footer{
-background:#0a2540;color:#fff;padding:40px 20px;
-display:flex;flex-wrap:wrap;gap:20px;justify-content:center;
-}
-
-.footer-box{flex:1;min-width:280px;}
-
-.whatsapp{
-position:fixed;bottom:20px;right:20px;
-background:#25D366;color:#fff;padding:15px;border-radius:50%;
-text-decoration:none;
-}
+body{font-family:Arial;background:#f5f7fa;text-align:center;}
+header{background:#0a2540;color:#fff;padding:50px;}
+.card{background:#fff;padding:20px;margin:10px;border-radius:10px;display:inline-block;width:200px;}
+a{display:block;margin-top:10px;padding:10px;background:#25D366;color:#fff;text-decoration:none;}
 </style>
 </head>
 
@@ -93,156 +17,28 @@ text-decoration:none;
 
 <header>
 <h1>Dogra Wealth Distributor</h1>
-<p>Turn Monthly Savings Into Future Freedom</p>
-
-<a class="btn" href="https://zerodha.com/open-account?c=ZMPYWZ">Open Demat Account</a>
-<a class="btn btn-blue" href="#">Start SIP (Coming Soon)</a>
+<p>Financial Calculators</p>
 </header>
 
-<div class="banner">🚀 Start Investing Today – Build Wealth Smartly</div>
-
-<section class="lead-section">
-<div class="lead-box">
-
-<div class="lead-left">
-<img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhsBy1mYzL1KyNMM1uAK461QbnqSpCMqSrGgVZG4yIhcRv7UU5MTRi9VI9fcXmhUVX5NLX6uEbFbs5j_w2kLdmDdtxZkQWuNUhI6j6c69N3Ro4iBuT3gvPrPBxL7hnpGG9oye4g87AdPKJq2S5y9mSMjbOK7gkThVgc8c9g5TAZYggeCc52UN0si1aoFPDS/s552/Screenshot%202026-04-02%20165332.png" class="lead-img">
-<div class="lead-name">Sunil Kumar</div>
-</div>
-
-<div class="lead-right">
-<h2>Start Your Mutual Fund Investment Easily</h2>
-<p>Get help with account setup, fund access, and smooth investment execution.</p>
-
-<p>
-✔ Free Account Setup<br>
-✔ SIP & Lumpsum Execution Support<br>
-✔ Simple & Hassle-Free Process
-</p>
-
-<a class="btn-whatsapp"
-href="https://wa.me/919463665032?text=Hi%20Sunil%20Ji,%20I%20want%20to%20start%20mutual%20fund%20investment.%20Please%20assist%20me."
-target="_blank">
-👉 Chat with Me on WhatsApp Now
-</a>
-
-</div>
-</div>
-</section>
-
-<section>
-<h2>Financial Calculators</h2>
-
-<div class="services">
-
-<!-- SIP -->
 <div class="card">
 <h3>SIP Calculator</h3>
-<input type="number" id="sip_amount" placeholder="Monthly Investment">
-<input type="number" id="sip_rate" placeholder="Expected Return Rate % (p.a.)">
-<input type="number" id="sip_years" placeholder="SIP Years">
-<button class="btn" onclick="calcSIP()">Calculate</button>
-<p class="result" id="sip_output"></p>
-<canvas id="sip_chart"></canvas>
+<a href="sip.html">Open</a>
 </div>
 
-<!-- Lumpsum -->
 <div class="card">
-<h3>FD/Lumpsum Calculator</h3>
-<input type="number" id="lum_amount" placeholder="Total Investment">
-<input type="number" id="lum_rate" placeholder="Expected Return Rate % (p.a.)">
-<input type="number" id="lum_years" placeholder="Time Period (Years)">
-<button class="btn" onclick="calcLump()">Calculate</button>
-<p class="result" id="lum_output"></p>
-<canvas id="lum_chart"></canvas>
+<h3>Lumpsum Calculator</h3>
+<a href="lumpsum.html">Open</a>
 </div>
 
-<!-- SWP -->
 <div class="card">
 <h3>SWP Calculator</h3>
-<input type="number" id="swp_corpus" placeholder="Total Investment">
-<input type="number" id="swp_withdrawal" placeholder="Withdrawal per Month">
-<input type="number" id="swp_rate" placeholder="Expected Return Rate % (p.a.)">
-<input type="number" id="swp_years" placeholder="Income Time Period (Years)">
-<button class="btn" onclick="calcSWP()">Calculate</button>
-<p class="result" id="swp_output"></p>
-<p class="result" id="swp_safe"></p>
-<canvas id="swp_chart"></canvas>
+<a href="swp.html">Open</a>
 </div>
 
-<!-- Inflation -->
 <div class="card">
-<h3>Inflation Adjusted</h3>
-<input type="number" id="inf_amount" placeholder="Total Investment">
-<input type="number" id="inf_rate" placeholder="Expected Return Rate % (p.a.)">
-<input type="number" id="inf_years" placeholder="Time Period (Years)">
-<input type="number" id="inf_inflation" value="6" placeholder="Inflation %">
-<button class="btn" onclick="calcInflation()">Calculate</button>
-<p class="result" id="inf_output"></p>
-<canvas id="inf_chart"></canvas>
+<h3>Inflation Calculator</h3>
+<a href="inflation.html">Open</a>
 </div>
-
-</div>
-</section>
-
-<section class="footer">
-<div class="footer-box">
-<h2>Contact</h2>
-<p><strong>Sunil Kumar</strong></p>
-<p>AMFI Registered Mutual Fund Distributor: ARN-346191</p>
-<p>📞 +91-9463665032</p>
-<p>📍 Opp. Guru Nanak Park, Gurdaspur, Punjab</p>
-<a class="btn" href="https://wa.me/919463665032">Chat on WhatsApp</a>
-</div>
-
-<div class="footer-box">
-<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3381.8935703761654!2d75.4038111!3d32.0450721!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391b927644f35e57%3A0x261b24146e966311!2sTara%20Chand%20Market%20Rd%2C%20Gurdaspur%2C%20Punjab%20143521!5e0!3m2!1sen!2sin"
-width="100%" height="300" style="border:0;border-radius:10px;" loading="lazy"></iframe>
-</div>
-</section>
-
-<a href="https://wa.me/919463665032" class="whatsapp">💬</a>
-
-<script>
-let sipChart, lumChart, swpChart, infChart;
-
-function calcSIP(){
-let P=Number(sip_amount.value),r=Number(sip_rate.value)/100/12,n=Number(sip_years.value)*12;
-if(!P||!r||!n)return;
-let FV=P*(((Math.pow(1+r,n)-1)/r)*(1+r)),invested=P*n,gain=FV-invested;
-sip_output.innerHTML="Invested: ₹"+invested.toLocaleString()+"<br>Final: ₹"+Math.round(FV).toLocaleString();
-if(sipChart)sipChart.destroy();
-sipChart=new Chart(sip_chart,{type:'pie',data:{labels:['Invested','Gain'],datasets:[{data:[invested,gain]}]}});
-}
-
-function calcLump(){
-let P=Number(lum_amount.value),r=Number(lum_rate.value)/100,n=Number(lum_years.value);
-if(!P||!r||!n)return;
-let FV=P*Math.pow(1+r,n),gain=FV-P;
-lum_output.innerHTML="Invested: ₹"+P.toLocaleString()+"<br>Final: ₹"+Math.round(FV).toLocaleString();
-if(lumChart)lumChart.destroy();
-lumChart=new Chart(lum_chart,{type:'pie',data:{labels:['Invested','Gain'],datasets:[{data:[P,gain]}]}});
-}
-
-function calcSWP(){
-let corpus=Number(swp_corpus.value),withdrawal=Number(swp_withdrawal.value),rate=Number(swp_rate.value)/100/12,years=Number(swp_years.value);
-if(!corpus||!withdrawal||!rate||!years)return;
-let months=years*12,balance=corpus,total=0;
-for(let i=0;i<months;i++){balance*=1+rate;if(balance<withdrawal){total+=balance;balance=0;break;}balance-=withdrawal;total+=withdrawal;}
-swp_output.innerHTML="Total Withdrawn: ₹"+Math.round(total).toLocaleString()+"<br>Remaining Corpus: ₹"+Math.round(balance).toLocaleString();
-swp_safe.innerHTML="Safe Withdrawal (4% Rule): ₹"+Math.round((corpus*0.04)/12).toLocaleString()+"/month";
-if(swpChart)swpChart.destroy();
-swpChart=new Chart(swp_chart,{type:'pie',data:{labels:['Withdrawn','Remaining'],datasets:[{data:[total,balance]}]}});
-}
-
-function calcInflation(){
-let P=Number(inf_amount.value),r=Number(inf_rate.value)/100,n=Number(inf_years.value),i=Number(inf_inflation.value)/100;
-if(!P||!r||!n||!i)return;
-let FV=P*Math.pow(1+r,n),realFV=FV/Math.pow(1+i,n),gain=FV-P;
-inf_output.innerHTML="Future Value: ₹"+Math.round(FV).toLocaleString()+"<br>Real Value: ₹"+Math.round(realFV).toLocaleString();
-if(infChart)infChart.destroy();
-infChart=new Chart(inf_chart,{type:'pie',data:{labels:['Invested','Gain'],datasets:[{data:[P,gain]}]}});
-}
-</script>
 
 </body>
 </html>
