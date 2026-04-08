@@ -9,30 +9,76 @@
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif;}
-  /* lead section added */
-  /* LEAD SECTION */
+body{background:#f5f7fa;color:#333;}
+
+header{
+background:linear-gradient(135deg,#0a2540,#007bff);
+color:#fff;text-align:center;padding:60px 20px;
+}
+
+.btn{
+display:inline-block;margin:10px;padding:12px 25px;
+background:#25D366;color:#fff;border-radius:30px;
+text-decoration:none;font-weight:bold;border:none;cursor:pointer;
+}
+
+.btn-blue{background:#007bff;}
+
+.banner{
+background:#ff9800;color:#fff;padding:20px;text-align:center;font-weight:bold;
+}
+
+/* 🔥 LEAD SECTION IMPROVED */
 .lead-section{
-background:#ffffff;
 padding:50px 20px;
-text-align:center;
 }
 
 .lead-box{
-max-width:700px;
+max-width:900px;
 margin:auto;
-background:#f9fbff;
+background:#ffffff;
 padding:30px;
 border-radius:15px;
 box-shadow:0 5px 20px rgba(0,0,0,0.08);
+display:flex;
+flex-wrap:wrap;
+align-items:center;
+gap:20px;
 }
 
-.lead-box h2{
+/* LEFT SIDE */
+.lead-left{
+flex:1;
+min-width:200px;
+text-align:center;
+}
+
+.lead-img{
+width:120px;
+height:120px;
+border-radius:50%;
+object-fit:cover;
+border:4px solid #007bff;
+}
+
+.lead-name{
+margin-top:10px;
+font-weight:bold;
+}
+
+/* RIGHT SIDE */
+.lead-right{
+flex:2;
+min-width:250px;
+}
+
+.lead-right h2{
 margin-bottom:10px;
 color:#0a2540;
 }
 
-.lead-box p{
-margin-bottom:20px;
+.lead-right p{
+margin-bottom:15px;
 color:#555;
 font-size:15px;
 }
@@ -46,32 +92,8 @@ text-decoration:none;
 font-weight:bold;
 display:inline-block;
 }
-  /* lead section ends */
-body{background:#f5f7fa;color:#333;}
 
-header{
-background:linear-gradient(135deg,#0a2540,#007bff);
-color:#fff;text-align:center;padding:60px 20px;
-}
-
-.profile-img{
-width:120px;height:120px;
-border-radius:50%;
-border:4px solid #fff;
-object-fit:cover;
-margin-bottom:10px;
-}
-
-.name{font-size:18px;margin-bottom:10px;}
-
-.btn{
-display:inline-block;margin:10px;padding:12px 25px;
-background:#25D366;color:#fff;border-radius:30px;
-text-decoration:none;font-weight:bold;border:none;cursor:pointer;
-}
-
-.btn-blue{background:#007bff;}
-
+/* CALCULATORS */
 section{padding:60px 20px;text-align:center;}
 
 .services{
@@ -91,10 +113,7 @@ width:100%;padding:8px;margin:5px 0;
 
 canvas{margin-top:10px;}
 
-.banner{
-background:#ff9800;color:#fff;padding:20px;text-align:center;font-weight:bold;
-}
-
+/* FOOTER */
 .footer{
 background:#0a2540;color:#fff;padding:40px 20px;
 display:flex;flex-wrap:wrap;gap:20px;justify-content:center;
@@ -113,9 +132,6 @@ text-decoration:none;
 <body>
 
 <header>
-<img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhsBy1mYzL1KyNMM1uAK461QbnqSpCMqSrGgVZG4yIhcRv7UU5MTRi9VI9fcXmhUVX5NLX6uEbFbs5j_w2kLdmDdtxZkQWuNUhI6j6c69N3Ro4iBuT3gvPrPBxL7hnpGG9oye4g87AdPKJq2S5y9mSMjbOK7gkThVgc8c9g5TAZYggeCc52UN0si1aoFPDS/s552/Screenshot%202026-04-02%20165332.png" class="profile-img">
-<div class="name">Sunil Kumar</div>
-
 <h1>Dogra Wealth Distributor</h1>
 <p>Turn Monthly Savings Into Future Freedom</p>
 
@@ -124,26 +140,37 @@ text-decoration:none;
 </header>
 
 <div class="banner">🚀 Start Investing Today – Build Wealth Smartly</div>
+
+<!-- 🔥 LEAD SECTION WITH YOUR IMAGE -->
 <section class="lead-section">
 
 <div class="lead-box">
+
+<div class="lead-left">
+<img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhsBy1mYzL1KyNMM1uAK461QbnqSpCMqSrGgVZG4yIhcRv7UU5MTRi9VI9fcXmhUVX5NLX6uEbFbs5j_w2kLdmDdtxZkQWuNUhI6j6c69N3Ro4iBuT3gvPrPBxL7hnpGG9oye4g87AdPKJq2S5y9mSMjbOK7gkThVgc8c9g5TAZYggeCc52UN0si1aoFPDS/s552/Screenshot%202026-04-02%20165332.png" class="lead-img">
+<div class="lead-name">Sunil Kumar</div>
+</div>
+
+<div class="lead-right">
 <h2>Start Your Mutual Fund Investment Easily</h2>
 
 <p>
-I help you with account setup, fund access, and smooth investment execution based on your needs.
+Get help with account setup, fund access, and smooth investment execution.
 </p>
 
 <p>
-✔ Free Demat & Mutual Fund Account Setup<br>
+✔ Free Account Setup<br>
 ✔ SIP & Lumpsum Execution Support<br>
-✔ Platform Guidance & Assistance
+✔ Simple & Hassle-Free Process
 </p>
 
 <a class="btn-whatsapp"
 href="https://wa.me/919463665032?text=Hi%20Sunil%20Ji,%20I%20want%20to%20start%20mutual%20fund%20investment.%20Please%20assist%20me."
 target="_blank">
-👉 Start chat with me via WhatsApp
+👉 Chat on WhatsApp Now
 </a>
+
+</div>
 
 </div>
 
@@ -205,7 +232,7 @@ target="_blank">
 </div>
 
 <div class="footer-box">
-<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3381.8935703761654!2d75.4038111!3d32.0450721!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391b927644f35e57%3A0x261b24146e966311!2sTara%20Chand%20Market%20Rd%2C%20Shaheed%20Bhagat%20Singh%20Nagar%2C%20Gurdaspur%2C%20Babowal%2C%20Punjab%20143521!5e0!3m2!1sen!2sin!4v1775408821250!5m2!1sen!2sin"
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3381.8935703761654!2d75.4038111!3d32.0450721!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391b927644f35e57%3A0x261b24146e966311!2sTara%20Chand%20Market%20Rd%2C%20Gurdaspur%2C%20Punjab%20143521!5e0!3m2!1sen!2sin"
 width="100%" height="300" style="border:0;border-radius:10px;" loading="lazy"></iframe>
 </div>
 
@@ -214,100 +241,61 @@ width="100%" height="300" style="border:0;border-radius:10px;" loading="lazy"></
 <a href="https://wa.me/919463665032" class="whatsapp">💬</a>
 
 <script>
-
 let sipChart, lumChart, swpChart;
 
-// SIP
 function calcSIP(){
-let P = Number(document.getElementById("sip_amount").value);
-let r = Number(document.getElementById("sip_rate").value)/100/12;
-let n = Number(document.getElementById("sip_years").value)*12;
-if(!P || !r || !n) return;
+let P = Number(sip_amount.value);
+let r = Number(sip_rate.value)/100/12;
+let n = Number(sip_years.value)*12;
+if(!P||!r||!n)return;
 
-let FV = P * (((Math.pow(1+r,n)-1)/r)*(1+r));
-let invested = P*n;
-let gain = FV - invested;
+let FV=P*(((Math.pow(1+r,n)-1)/r)*(1+r));
+let invested=P*n;
+let gain=FV-invested;
 
-document.getElementById("sip_output").innerHTML =
-"Invested: ₹"+invested.toLocaleString()+"<br>Final: ₹"+Math.round(FV).toLocaleString()+"<br>Gain: ₹"+Math.round(gain).toLocaleString();
+sip_output.innerHTML="Invested: ₹"+invested.toLocaleString()+"<br>Final: ₹"+Math.round(FV).toLocaleString();
 
 if(sipChart) sipChart.destroy();
-sipChart = new Chart(document.getElementById("sip_chart"),{
-type:'pie',
-data:{labels:['Invested','Gain'],datasets:[{data:[invested,gain]}]}
-});
+sipChart=new Chart(sip_chart,{type:'pie',data:{labels:['Invested','Gain'],datasets:[{data:[invested,gain]}]}});
 }
 
-// Lumpsum
 function calcLump(){
-let P = Number(document.getElementById("lum_amount").value);
-let r = Number(document.getElementById("lum_rate").value)/100;
-let n = Number(document.getElementById("lum_years").value);
-if(!P || !r || !n) return;
+let P=Number(lum_amount.value);
+let r=Number(lum_rate.value)/100;
+let n=Number(lum_years.value);
+if(!P||!r||!n)return;
 
-let FV = P*Math.pow(1+r,n);
-let gain = FV-P;
+let FV=P*Math.pow(1+r,n);
+let gain=FV-P;
 
-document.getElementById("lum_output").innerHTML =
-"Invested: ₹"+P.toLocaleString()+"<br>Final: ₹"+Math.round(FV).toLocaleString()+"<br>Gain: ₹"+Math.round(gain).toLocaleString();
+lum_output.innerHTML="Invested: ₹"+P.toLocaleString()+"<br>Final: ₹"+Math.round(FV).toLocaleString();
 
 if(lumChart) lumChart.destroy();
-lumChart = new Chart(document.getElementById("lum_chart"),{
-type:'pie',
-data:{labels:['Invested','Gain'],datasets:[{data:[P,gain]}]}
-});
+lumChart=new Chart(lum_chart,{type:'pie',data:{labels:['Invested','Gain'],datasets:[{data:[P,gain]}]}});
 }
 
-// SWP (ADVANCED)
 function calcSWP(){
+let corpus=Number(swp_corpus.value);
+let withdrawal=Number(swp_withdrawal.value);
+let rate=Number(swp_rate.value)/100/12;
+let years=Number(swp_years.value);
 
-let corpus = Number(document.getElementById("swp_corpus").value);
-let withdrawal = Number(document.getElementById("swp_withdrawal").value);
-let rate = Number(document.getElementById("swp_rate").value)/100/12;
-let years = Number(document.getElementById("swp_years").value);
+if(!corpus||!withdrawal||!rate||!years)return;
 
-let output = document.getElementById("swp_output");
-let safeBox = document.getElementById("swp_safe");
-
-if(!corpus || !withdrawal || !rate || !years){
-output.innerHTML = "Please enter all values";
-return;
-}
-
-let months = years * 12;
-let balance = corpus;
-let totalWithdrawn = 0;
+let months=years*12,balance=corpus,total=0;
 
 for(let i=0;i<months;i++){
-balance = balance*(1+rate);
-
-if(balance < withdrawal){
-totalWithdrawn += balance;
-balance = 0;
-break;
+balance*=1+rate;
+if(balance<withdrawal){total+=balance;balance=0;break;}
+balance-=withdrawal;total+=withdrawal;
 }
 
-balance -= withdrawal;
-totalWithdrawn += withdrawal;
-}
-
-output.innerHTML =
-"Total Withdrawn: ₹"+Math.round(totalWithdrawn).toLocaleString()+"<br>" +
-"Remaining Corpus: ₹"+Math.round(balance).toLocaleString();
-
-let safeMonthly = (corpus*0.04)/12;
-
-safeBox.innerHTML =
-"Safe Withdrawal (4% Rule): ₹"+Math.round(safeMonthly).toLocaleString()+"/month";
+swp_output.innerHTML="Total Withdrawn: ₹"+Math.round(total).toLocaleString()+"<br>Remaining Corpus: ₹"+Math.round(balance).toLocaleString();
+swp_safe.innerHTML="Safe Withdrawal (4% Rule): ₹"+Math.round((corpus*0.04)/12).toLocaleString()+"/month";
 
 if(swpChart) swpChart.destroy();
-
-swpChart = new Chart(document.getElementById("swp_chart"),{
-type:'pie',
-data:{labels:['Withdrawn','Remaining'],datasets:[{data:[totalWithdrawn,balance]}]}
-});
+swpChart=new Chart(swp_chart,{type:'pie',data:{labels:['Withdrawn','Remaining'],datasets:[{data:[total,balance]}]}});
 }
-
 </script>
 
 </body>
