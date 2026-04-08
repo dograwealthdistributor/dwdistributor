@@ -1,1 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Inflation Calculator India</title>
+<meta name="description" content="Calculate real value of investment after inflation">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
 
+<body style="text-align:center;font-family:Arial;">
+
+<h2>Inflation Calculator</h2>
+
+<input id="amount" placeholder="Investment"><br>
+<input id="rate" placeholder="Return %"><br>
+<input id="years" placeholder="Years"><br>
+<input id="inflation" value="6" placeholder="Inflation %"><br>
+
+<button onclick="calc()">Calculate</button>
+
+<p id="output"></p>
+<canvas id="chart"></canvas>
+
+<h3>How to Use</h3>
+<p>Enter values to see real value after inflation.</p>
+
+<script>
+let chart;
+function calc(){
+let P=amount.value,r=rate.value/100,n=years.value,i=inflation.value/100;
+
+let FV=P*Math.pow(1+r,n);
+let real=FV/Math.pow(1+i,n);
+
+output.innerHTML="Future: ₹"+Math.round(FV)+" Real: ₹"+Math.round(real);
+
+if(chart) chart.destroy();
+chart=new Chart(chart,{type:'pie',data:{labels:['Invested','Gain'],datasets:[{data:[P,FV-P]}]}});
+}
+</script>
+
+</body>
+</html>
