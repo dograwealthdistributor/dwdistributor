@@ -1,122 +1,41 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- KEEP YOUR FULL CODE SAME UNTIL calculator section -->
 
-<title>Lumpsum Calculator | Dogra Wealth Distributor</title>
-<meta name="description" content="Calculate lumpsum investment returns easily.">
-<meta name="keywords" content="lumpsum calculator india, investment calculator">
+<section>
+<h2>Financial Calculators</h2>
 
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<div class="services">
 
-<style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif;}
-body{background:#f5f7fa;color:#333;}
-
-header{
-background:linear-gradient(135deg,#0a2540,#007bff);
-color:#fff;text-align:center;padding:60px 20px;
-}
-
-.nav a{
-margin:0 10px;color:#fff;text-decoration:none;font-weight:bold;
-}
-
-.banner{
-background:#ff9800;color:#fff;padding:15px;text-align:center;
-}
-
-.lead-section{padding:40px 20px;}
-.lead-box{
-max-width:900px;margin:auto;background:#fff;padding:25px;
-border-radius:15px;display:flex;flex-wrap:wrap;gap:20px;
-}
-
-.lead-img{width:110px;border-radius:50%;}
-.card{
-background:#fff;padding:25px;width:320px;margin:auto;
-border-radius:15px;box-shadow:0 5px 20px rgba(0,0,0,0.08);
-}
-
-input{width:100%;padding:10px;margin:6px 0;}
-
-button{
-padding:10px 20px;background:#25D366;color:#fff;border:none;border-radius:20px;
-}
-
-.footer{
-background:#0a2540;color:#fff;padding:30px;text-align:center;
-}
-</style>
-</head>
-
-<body>
-
-<header>
-<h1>Dogra Wealth Distributor</h1>
-<p>Turn Monthly Savings Into Future Freedom</p>
-
-<div class="nav">
-<a href="index.html">Lumpsum</a>
-<a href="sip.html">SIP</a>
-<a href="swp.html">SWP</a>
-<a href="inflation.html">Inflation</a>
-</div>
-</header>
-
-<div class="banner">🚀 Smart Investing Starts Here</div>
-
-<section class="lead-section">
-<div class="lead-box">
-
-<div>
-<img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhsBy1mYzL1KyNMM1uAK461QbnqSpCMqSrGgVZG4yIhcRv7UU5MTRi9VI9fcXmhUVX5NLX6uEbFbs5j_w2kLdmDdtxZkQWuNUhI6j6c69N3Ro4iBuT3gvPrPBxL7hnpGG9oye4g87AdPKJq2S5y9mSMjbOK7gkThVgc8c9g5TAZYggeCc52UN0si1aoFPDS/s552/Screenshot.png" class="lead-img">
-<p><b>Sunil Kumar</b></p>
-</div>
-
-<div>
-<h2>Start Your Investment Easily</h2>
-<p>Get support for account setup & execution.</p>
-<a href="https://wa.me/919463665032">👉 WhatsApp Now</a>
-</div>
-
-</div>
-</section>
-
-<section style="text-align:center;padding:40px;">
-<h2>Lumpsum Calculator</h2>
-
+<!-- Lumpsum ONLY -->
 <div class="card">
-<input id="amount" placeholder="Investment">
-<input id="rate" placeholder="Return %">
-<input id="years" placeholder="Years">
-<button onclick="calc()">Calculate</button>
-<p id="out"></p>
-<canvas id="chart"></canvas>
+<h3>FD/Lumpsum Calculator</h3>
+<input type="number" id="lum_amount" placeholder="Total Investment">
+<input type="number" id="lum_rate" placeholder="Expected Return Rate % (p.a.)">
+<input type="number" id="lum_years" placeholder="Time Period (Years)">
+<button class="btn" onclick="calcLump()">Calculate</button>
+<p class="result" id="lum_output"></p>
+<canvas id="lum_chart"></canvas>
 </div>
 
-<h3 style="margin-top:30px;">How to use</h3>
-<p>Enter amount, expected return and duration.</p>
+</div>
+
+<!-- LINKS -->
+<div style="margin-top:30px;">
+<a class="btn" href="sip.html">SIP Calculator</a>
+<a class="btn" href="swp.html">SWP Calculator</a>
+<a class="btn" href="inflation.html">Inflation Calculator</a>
+</div>
 
 </section>
-
-<div class="footer">© Dogra Wealth Distributor</div>
 
 <script>
-let chart;
-function calc(){
-let P=amount.value,r=rate.value/100,n=years.value;
-let FV=P*Math.pow(1+r,n);
-out.innerHTML="Final: ₹"+Math.round(FV).toLocaleString();
+let lumChart;
 
-if(chart) chart.destroy();
-chart=new Chart(chart,{
-type:'pie',
-data:{labels:['Investment','Gain'],datasets:[{data:[P,FV-P]}]}
-});
+function calcLump(){
+let P=Number(lum_amount.value),r=Number(lum_rate.value)/100,n=Number(lum_years.value);
+if(!P||!r||!n)return;
+let FV=P*Math.pow(1+r,n),gain=FV-P;
+lum_output.innerHTML="Invested: ₹"+P.toLocaleString()+"<br>Final: ₹"+Math.round(FV).toLocaleString();
+if(lumChart)lumChart.destroy();
+lumChart=new Chart(lum_chart,{type:'pie',data:{labels:['Invested','Gain'],datasets:[{data:[P,gain]}]}});
 }
 </script>
-
-</body>
-</html>
