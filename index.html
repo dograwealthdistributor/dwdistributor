@@ -5,83 +5,57 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Lumpsum Calculator | Dogra Wealth Distributor</title>
 
-<meta name="description" content="Calculate your lumpsum mutual fund returns. Easy calculator with future value and investment breakdown.">
-<meta name="keywords" content="lumpsum calculator, mutual fund calculator, investment calculator India">
-
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI';}
-body{background:#f5f7fa;display:flex;}
+body{display:flex;background:#f5f7fa;}
 
 /* SIDEBAR */
 .sidebar{
-width:240px;
-background:#0a2540;
-color:#fff;
-height:100vh;
-padding:20px;
-position:fixed;
+width:240px;background:#0a2540;color:#fff;height:100vh;
+position:fixed;padding:20px;
 }
-
 .sidebar h2{margin-bottom:20px;}
-
 .sidebar a{
-display:block;
-color:#fff;
-padding:10px;
-text-decoration:none;
-border-radius:6px;
-margin-bottom:10px;
+display:block;color:#fff;padding:10px;margin-bottom:10px;
+text-decoration:none;border-radius:6px;
 }
-
 .sidebar a:hover{background:#007bff;}
 
-/* MAIN CONTENT */
-.main{
-margin-left:240px;
-width:100%;
-}
+/* MAIN */
+.main{margin-left:240px;width:100%;}
 
+/* HEADER */
 header{
-background:#007bff;
-color:#fff;
-padding:30px;
-text-align:center;
+background:linear-gradient(135deg,#0a2540,#007bff);
+color:#fff;text-align:center;padding:40px;
 }
 
-.container{
-padding:40px;
-text-align:center;
+/* LEAD */
+.lead{
+padding:30px;text-align:center;background:#fff;
 }
 
-/* CARD */
+/* CALCULATOR */
+.container{padding:40px;text-align:center;}
 .card{
-background:#fff;
-padding:25px;
-max-width:400px;
-margin:auto;
-border-radius:15px;
-box-shadow:0 5px 20px rgba(0,0,0,0.08);
+background:#fff;padding:25px;max-width:400px;margin:auto;
+border-radius:15px;box-shadow:0 5px 20px rgba(0,0,0,0.08);
 }
-
 .card input{
-width:100%;
-padding:10px;
-margin:8px 0;
+width:100%;padding:10px;margin:8px 0;
 }
-
 .btn{
-background:#25D366;
-color:#fff;
-padding:12px;
-border:none;
-width:100%;
-cursor:pointer;
-border-radius:25px;
+background:#25D366;color:#fff;padding:12px;border:none;
+width:100%;border-radius:25px;cursor:pointer;
 }
+.result{margin-top:10px;font-weight:bold;}
 
-.result{margin-top:15px;font-weight:bold;}
+/* FOOTER */
+.footer{
+background:#0a2540;color:#fff;padding:30px;text-align:center;
+}
 </style>
 </head>
 
@@ -90,30 +64,35 @@ border-radius:25px;
 <!-- SIDEBAR -->
 <div class="sidebar">
 <h2>Calculators</h2>
-<a href="index.html">Lumpsum Calculator</a>
-<a href="sip.html">SIP Calculator</a>
-<a href="swp.html">SWP Calculator</a>
-<a href="inflation.html">Inflation Calculator</a>
+<a href="index.html">Lumpsum</a>
+<a href="sip.html">SIP</a>
+<a href="swp.html">SWP</a>
+<a href="inflation.html">Inflation</a>
 </div>
 
-<!-- MAIN -->
 <div class="main">
 
 <header>
-<h1>Lumpsum Calculator</h1>
-<p>Plan your one-time investment growth</p>
+<h1>Dogra Wealth Distributor</h1>
+<p>Turn Monthly Savings Into Future Freedom</p>
 </header>
+
+<div class="lead">
+<h2>Start Investing Easily</h2>
+<p>Get help with account setup & investment execution</p>
+<a href="https://wa.me/919463665032">👉 Chat on WhatsApp</a>
+</div>
 
 <div class="container">
 
 <div class="card">
-<h3>Lumpsum Investment</h3>
+<h3>Lumpsum Calculator</h3>
 
 <input type="number" id="amount" placeholder="Total Investment">
 <input type="number" id="rate" placeholder="Return % (p.a.)">
-<input type="number" id="years" placeholder="Years">
+<input type="number" id="years" placeholder="Time Period (Years)">
 
-<button class="btn" onclick="calc()">Calculate</button>
+<button class="btn" onclick="calcLump()">Calculate</button>
 
 <p class="result" id="output"></p>
 <canvas id="chart"></canvas>
@@ -121,27 +100,36 @@ border-radius:25px;
 
 </div>
 
+<div class="footer">
+<p>Sunil Kumar | Mutual Fund Distributor</p>
+</div>
+
 </div>
 
 <script>
 let chart;
 
-function calc(){
-let P=Number(amount.value);
-let r=Number(rate.value)/100;
-let n=Number(years.value);
+function calcLump(){
+let P=Number(document.getElementById("amount").value);
+let r=Number(document.getElementById("rate").value)/100;
+let n=Number(document.getElementById("years").value);
 
 if(!P||!r||!n)return;
 
 let FV=P*Math.pow(1+r,n);
 let gain=FV-P;
 
-output.innerHTML="Invested: ₹"+P.toLocaleString()+"<br>Final: ₹"+Math.round(FV).toLocaleString();
+document.getElementById("output").innerHTML=
+"Invested: ₹"+P.toLocaleString()+"<br>Final: ₹"+Math.round(FV).toLocaleString();
 
 if(chart)chart.destroy();
+
 chart=new Chart(document.getElementById("chart"),{
 type:'pie',
-data:{labels:['Invested','Gain'],datasets:[{data:[P,gain]}]}
+data:{
+labels:['Invested','Gain'],
+datasets:[{data:[P,gain]}]
+}
 });
 }
 </script>
