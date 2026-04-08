@@ -55,7 +55,7 @@ display:flex;flex-wrap:wrap;justify-content:center;gap:20px;
 }
 
 .card{
-background:#fff;padding:20px;width:260px;
+background:#fff;padding:20px;width:320px;
 border-radius:15px;box-shadow:0 5px 20px rgba(0,0,0,0.08);
 }
 
