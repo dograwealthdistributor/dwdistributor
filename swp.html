@@ -1,31 +1,31 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+<meta charset="UTF-8">
 <title>SWP Calculator</title>
-<meta name="description" content="SWP calculator to plan monthly income.">
 </head>
+
 <body>
 
 <h2>SWP Calculator</h2>
 
-<input id="corpus" placeholder="Investment">
-<input id="withdrawal" placeholder="Monthly Income">
-<input id="rate" placeholder="Return %">
-<input id="years" placeholder="Years">
+<input id="c" placeholder="Investment">
+<input id="w" placeholder="Monthly Income">
+<input id="r" placeholder="Return %">
+<input id="y" placeholder="Years">
 
 <button onclick="calc()">Calculate</button>
-
 <p id="out"></p>
 
 <script>
 function calc(){
-let c=corpus.value,w=withdrawal.value,r=rate.value/100/12,y=years.value*12;
-let bal=c,total=0;
+let c1=c.value,w1=w.value,r1=r.value/100/12,y1=y.value*12;
+let bal=c1,total=0;
 
-for(let i=0;i<y;i++){
-bal*=1+r;
-bal-=w;
-total+=w;
+for(let i=0;i<y1;i++){
+bal*=1+r1;
+bal-=w1;
+total+=w1;
 }
 
 out.innerHTML="Withdrawn ₹"+Math.round(total)+" Remaining ₹"+Math.round(bal);
