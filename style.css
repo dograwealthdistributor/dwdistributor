@@ -6,7 +6,7 @@ header{
 background:linear-gradient(135deg,#0a2540,#007bff);
 color:#fff;text-align:center;padding:60px 20px;
 }
-.home-btn{
+.nav{
 position:fixed;
 bottom:80px;
 right:20px;
