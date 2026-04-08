@@ -25,6 +25,8 @@ text-decoration:none;font-weight:bold;border:none;cursor:pointer;
 }
 
 .btn-blue{background:#007bff;}
+.btn-blue-affilate{background:#007bff; text-align: center;}
+.btn-affilate { text-align: center;}
 
 .banner{
 background:#ff9800;color:#fff;padding:20px;text-align:center;font-weight:bold;
