@@ -1,17 +1,18 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+<meta charset="UTF-8">
 <title>Inflation Calculator</title>
-<meta name="description" content="Inflation adjusted investment calculator India.">
 </head>
+
 <body>
 
 <h2>Inflation Calculator</h2>
 
-<input id="amt" placeholder="Investment">
-<input id="rate" placeholder="Return %">
-<input id="yrs" placeholder="Years">
-<input id="inf" value="6" placeholder="Inflation %">
+<input id="p" placeholder="Investment">
+<input id="r" placeholder="Return %">
+<input id="y" placeholder="Years">
+<input id="i" value="6" placeholder="Inflation %">
 
 <button onclick="calc()">Calculate</button>
 
@@ -19,9 +20,9 @@
 
 <script>
 function calc(){
-let P=amt.value,r=rate.value/100,n=yrs.value,i=inf.value/100;
-let FV=P*Math.pow(1+r,n);
-let real=FV/Math.pow(1+i,n);
+let P=p.value,r=r.value/100,y1=y.value,i1=i.value/100;
+let FV=P*Math.pow(1+r,y1);
+let real=FV/Math.pow(1+i1,y1);
 
 out.innerHTML="Future ₹"+Math.round(FV)+" Real ₹"+Math.round(real);
 }
