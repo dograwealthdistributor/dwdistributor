@@ -61,19 +61,26 @@
 
 <body>
 <header>
+ <!-- Hamburger -->
+<div class="menu-toggle" onclick="toggleMenu()">
+☰
+</div>
+
+<ul class="nav" id="navMenu">
+<li><a href="index.html">🏠 Home</a></li>
+<li><a href="sip.html">SIP</a></li>
+<li><a href="index.html">Lumpsum</a></li>
+<li><a href="swp.html">SWP</a></li>
+<li><a href="swp-goal.html">Retirement Income</a></li>
+<li><a href="inflation.html">Inflation</a></li>
+</ul>
 <h1>Dogra Wealth Distributor</h1>
 <p>Turn Monthly Savings Into Future Freedom</p>
  <a class="btn btn-blue" href="https://sbimf.app/630040AdW6Ec">👉 Start SIP Today!</a>
 <a class="btn" href="https://zerodha.com/open-account?c=ZMPYWZ">Open Demat Account</a>
 </header>
-<ul class="nav">
-<li><a href="index.html">🏠 Home</a></li>
-<li><a href="sip.html">SIP</a></li>
-<li> <a href="index.html">Lumpsum</a></li>
-<li><a href="swp.html" class="active">SWP</a></li>
-<li> <a href="swp-goal.html">Retirement Income Calculator</a></li>
-<li><a href="inflation.html">Inflation Impact Calculator</a></li>
-</ul>
+<div class="nav-container">
+</div>
 <div class="banner">
 <div class="banner-text">
 🚀 Start Investing Today – Build Wealth Smartly
@@ -200,3 +207,11 @@ if(swpChart)swpChart.destroy();
 swpChart=new Chart(swp_chart,{type:'pie',data:{labels:['Withdrawn','Remaining'],datasets:[{data:[total,balance]}]}});
 }
 </script>
+ <script>
+function toggleMenu(){
+  document.getElementById("navMenu").classList.toggle("show");
+}
+</script>
+
+</body>
+</html>
