@@ -128,47 +128,75 @@ transition:0.3s ease;
 width:100%;
 }  */
 /* Navigation from w3schools */
-/* NAVBAR FIX */
-/* FORCE NAV BACKGROUND FIX */
+/* NAV CONTAINER */
+.nav-container{
+  position: relative;
+}
+
+/* DESKTOP NAV */
 .nav {
   list-style: none;
-  margin-top: 20px;
+  margin: 0;
   padding: 0;
   display: flex;
   justify-content: center;
-  flex-wrap: wrap;
-  gap: 10px;
-
-  background: transparent !important; /* 🔥 THIS FIXES WHITE BAR */
+  background: transparent;
 }
 
-/* remove old UL styling effect */
-ul {
-  background: none !important;
+.nav li {
+  margin: 0 10px;
 }
 
-/* nav links */
 .nav li a {
-  display: inline-block;
-  color: #ffffff !important; /* 🔥 force white text */
+  display: block;
+  color: #ffffff;
+  padding: 10px 15px;
   text-decoration: none;
-  padding: 8px 16px;
-  font-size: 15px;
   border-radius: 20px;
   transition: 0.3s;
 }
 
-/* hover */
 .nav li a:hover {
-  background: rgba(255,255,255,0.15);
+  background: rgba(255,255,255,0.2);
 }
 
-/* active */
-.nav li a.active {
-  background: rgba(255,255,255,0.2);
-  color: #ffffff !important;
-  font-weight: bold;
-  border: 1px solid rgba(255,255,255,0.4);
+/* HAMBURGER (hidden on desktop) */
+.menu-toggle{
+  display: none;
+  font-size: 28px;
+  color: #fff;
+  cursor: pointer;
+  text-align: right;
+  padding: 10px 20px;
+}
+
+/* MOBILE VIEW */
+@media(max-width:768px){
+
+  .menu-toggle{
+    display: block;
+  }
+
+  .nav{
+    display: none; /* hidden by default */
+    flex-direction: column;
+    background: #0a2540;
+    width: 100%;
+  }
+
+  .nav li{
+    text-align: center;
+    margin: 0;
+  }
+
+  .nav li a{
+    padding: 15px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .nav.show{
+    display: flex;
+  }
 }
 /* ends Navigation css*/
 /* TEXT BELOW NAV */
