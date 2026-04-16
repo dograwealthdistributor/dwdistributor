@@ -97,7 +97,7 @@ padding:15px 10px;
 text-align:center;
 }
 
-/* NAVIGATION */
+/* NAVIGATION 
 .nav{
 margin-bottom:10px;
 }
@@ -112,7 +112,7 @@ position:relative;
 display:inline-block;
 }
 
-/* underline animation */
+/* underline animation
 .nav a::after{
 content:'';
 position:absolute;
@@ -126,8 +126,32 @@ transition:0.3s ease;
 
 .nav a:hover::after{
 width:100%;
+}  */
+/* Navigation from w3schools */
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333333;
 }
 
+ul li {
+  float: left;
+}
+
+ul li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+ul li a:hover {
+  background-color: #111111;
+}
+/* ends Navigation css*/
 /* TEXT BELOW NAV */
 .banner-text{
 font-weight:bold;
