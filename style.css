@@ -224,6 +224,8 @@ flex:1;
 display:flex;
 flex-direction:column;
 gap:12px;
+  width:260px;
+flex-shrink:0;
 }
 
 /* MOBILE FIX */
