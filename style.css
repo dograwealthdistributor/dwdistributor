@@ -203,4 +203,48 @@ width:100%;
 .banner-text{
 font-weight:bold;
 }
+/*SIP steup calc CSS */
+/* CALCULATOR LAYOUT */
+.calc-container{
+display:flex;
+flex-wrap:wrap;
+gap:30px;
+justify-content:center;
+align-items:flex-start;
+max-width:1100px;
+margin:auto;
+}
+
+.calc-left{
+flex:2;
+min-width:300px;
+}
+
+.calc-right{
+flex:1;
+min-width:250px;
+}
+
+/* RESULT BOX */
+.result-box{
+margin-top:20px;
+padding:20px;
+border-radius:12px;
+background:#f8f9fb;
+}
+
+/* SIDEBAR */
+.sidebar{
+display:flex;
+flex-direction:column;
+gap:12px;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+.calc-container{
+flex-direction:column;
+}
+}
+/*SIP steup calc CSS */
 </style>
