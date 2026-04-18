@@ -1,1 +1,237 @@
+<!-- COPY FULL INDEX FILE -->
+<!-- ONLY CHANGE CALCULATOR SECTION -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dogra Wealth Distributor</title>
 
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<link rel="stylesheet" href="style.css">
+ <!-- Schema for search results -->
+    <script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@type": "FinancialService",
+"name": "Dogra Wealth Distributor",
+"image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhsBy1mYzL1KyNMM1uAK461QbnqSpCMqSrGgVZG4yIhcRv7UU5MTRi9VI9fcXmhUVX5NLX6uEbFbs5j_w2kLdmDdtxZkQWuNUhI6j6c69N3Ro4iBuT3gvPrPBxL7hnpGG9oye4g87AdPKJq2S5y9mSMjbOK7gkThVgc8c9g5TAZYggeCc52UN0si1aoFPDS/s552/Screenshot%202026-04-02%20165332.png",
+"url": "https://www.dwdistributor.in",
+"telephone": "+91-9463665032",
+"address": {
+  "@type": "PostalAddress",
+  "streetAddress": "Bath Wali Gali, Opp. Guru Nanak Park, Gurdaspur",
+  "addressLocality": "Gurdaspur",
+  "addressRegion": "Punjab",
+  "postalCode": "143521",
+  "addressCountry": "IN"
+},
+"sameAs": [
+  "https://www.dwdistributor.in"
+]
+}
+</script>
+  <!-- Schema for search results Ends-->  
+    <!-- Page specific schema for pages -->
+    <script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@type": "WebApplication",
+"name": "SIP Calculator",
+"url": "https://www.dwdistributor.in/sip.html",
+"applicationCategory": "FinanceApplication",
+"operatingSystem": "All",
+"description": "Free SIP calculator to estimate returns on monthly investments in mutual funds.",
+"offers": {
+  "@type": "Offer",
+  "price": "0",
+  "priceCurrency": "INR"
+}
+}
+</script>
+    <!-- Title and meta for seo -->
+   <title>SIP Calculator India | Calculate Monthly Investment Returns</title>
+
+<meta name="description" content="Free SIP Calculator India. Calculate returns on monthly mutual fund investments. Plan your SIP and build long-term wealth easily.">
+
+<meta name="keywords" content="sip calculator india, mutual fund sip calculator, monthly investment calculator, sip returns calculator, best sip calculator india">
+
+<meta name="robots" content="index, follow">
+       <!-- Title and meta for seo ends -->
+</head>
+
+<body>
+<header>
+<h1>Dogra Wealth Distributor</h1>
+<p>Turn Monthly Savings Into Future Freedom</p>
+ <div class="menu-toggle" onclick="toggleMenu()">
+☰
+</div>
+
+<ul class="nav" id="navMenu">
+<li><a href="index.html">🏠 Home</a></li>
+<li><a href="sip.html">SIP</a></li>
+<li><a href="index.html">Lumpsum</a></li>
+<li><a href="swp.html">SWP</a></li>
+<li><a href="swp-goal.html">Retirement Income</a></li>
+<li><a href="inflation.html">Inflation</a></li>
+</ul>
+ <a class="btn btn-blue" href="https://sbimf.app/630040AdW6Ec">👉 Start SIP Today!</a>
+<a class="btn" href="https://zerodha.com/open-account?c=ZMPYWZ">Open Demat Account</a>
+</header>
+
+<div class="banner">
+<div class="banner-text">
+🚀 Start Investing Today – Build Wealth Smartly
+</div>
+
+</div>
+
+<section class="lead-section">
+<div class="lead-box">
+
+<div class="lead-left">
+<img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhsBy1mYzL1KyNMM1uAK461QbnqSpCMqSrGgVZG4yIhcRv7UU5MTRi9VI9fcXmhUVX5NLX6uEbFbs5j_w2kLdmDdtxZkQWuNUhI6j6c69N3Ro4iBuT3gvPrPBxL7hnpGG9oye4g87AdPKJq2S5y9mSMjbOK7gkThVgc8c9g5TAZYggeCc52UN0si1aoFPDS/s552/Screenshot%202026-04-02%20165332.png" class="lead-img">
+<div class="lead-name">Sunil Kumar</div>
+</div>
+
+<div class="lead-right">
+<h2>Start Your Mutual Fund Investment Easily</h2>
+<p>Get help with account setup, fund access, and smooth investment execution.</p>
+
+<p>
+✔ Free Account Setup<br>
+✔ SIP & Lumpsum Execution Support<br>
+✔ Simple & Hassle-Free Process
+</p>
+
+<a class="btn-whatsapp"
+href="https://wa.me/919463665032?text=Hi%20Sunil%20Ji,%20I%20want%20to%20start%20mutual%20fund%20investment.%20Please%20assist%20me."
+target="_blank">
+👉 Chat with Me on WhatsApp Now
+</a>
+
+</div>
+</div>
+</section>
+<section>
+<h2>SIP Calculator</h2>
+<div>Estimate how your monthly investments can grow over time and build long-term wealth.</div>
+<div class="services">
+
+<div class="card">
+   <a class="btn btn-blue" href="https://sbimf.app/630040AdW6Ec">👉 Start SIP Today!</a>
+<h3>SIP Calculator</h3>
+<input type="number" id="sip_amount" placeholder="Monthly Investment">
+<input type="number" id="sip_rate" placeholder="Expected Return % (p.a.)">
+<input type="number" id="sip_years" placeholder="Investment Duration (Years)">
+<input type="number" id="sip_stepup" placeholder="Yearly Step-Up %">
+
+<button class="btn" onclick="calcStepUp()">Calculate</button>
+
+<p class="result" id="sip_output"></p>
+<canvas id="sip_chart"></canvas>
+</div>
+
+</div>
+<!-- Content for page -->
+ <section style="max-width:900px;margin:auto;padding:20px;text-align:left;">
+<!-- DESCRIPTION (SEO BOOST) -->
+<div style="max-width:800px;margin:auto;margin-top:30px;text-align:left;color:#555;">
+<h3>What is Step-Up SIP?</h3>
+<p>
+Step-Up SIP allows you to increase your monthly investment every year. As your income grows, your investments also grow, helping you build significantly higher wealth compared to a regular SIP.
+</p>
+
+<h3>Why use Step-Up SIP?</h3>
+<ul>
+<li>Matches your income growth</li>
+<li>Builds higher long-term wealth</li>
+<li>Helps beat inflation easily</li>
+</ul>
+</div>
+</section>
+ <!-- ends -->
+<div style="margin-top:30px;"> 
+<a class="btn" href="index.html">Lumpsum Calculator</a>
+<a class="btn" href="sip.html">SIP Calculator</a>
+<a class="btn" href="swp.html">SWP Calculator</a>
+ <a class="btn" href="swp-goal.html">Retirement Income Calculator</a>
+<a class="btn" href="inflation.html">Inflation Impact Calculator</a>
+</div>
+
+</section>
+<section class="footer">
+<div class="footer-box">
+<h2>Contact</h2>
+<p><strong>Sunil Kumar</strong></p>
+<p>AMFI Registered Mutual Fund Distributor: ARN-346191</p>
+ <p>Authorised Person (AP) with NSE Exchange: AP2516004321</p>
+<p>📞 +91-9463665032</p>
+<p>📍 Opp. Guru Nanak Park, Gurdaspur, Punjab</p>
+<a class="btn" href="https://wa.me/919463665032">Chat on WhatsApp</a>
+</div>
+
+<div class="footer-box">
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3381.8935703761654!2d75.4038111!3d32.0450721!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391b927644f35e57%3A0x261b24146e966311!2sTara%20Chand%20Market%20Rd%2C%20Gurdaspur%2C%20Punjab%20143521!5e0!3m2!1sen!2sin"
+width="100%" height="300" style="border:0;border-radius:10px;" loading="lazy"></iframe>
+</div>
+</section>
+
+<a href="https://wa.me/919463665032" class="whatsapp">💬</a>
+<!-- SCRIPT for step calc -->
+<script>
+let sipChart;
+
+function calcStepUp(){
+
+let P = Number(sip_amount.value);
+let annualRate = Number(sip_rate.value)/100;
+let r = annualRate/12;
+let years = Number(sip_years.value);
+let stepUp = Number(sip_stepup.value)/100;
+
+if(!P || !r || !years) return;
+
+let balance = 0;
+let invested = 0;
+let currentSIP = P;
+
+for(let y=1; y<=years; y++){
+
+  for(let m=1; m<=12; m++){
+    balance = (balance + currentSIP) * (1 + r);
+    invested += currentSIP;
+  }
+
+  currentSIP = currentSIP * (1 + stepUp);
+}
+
+let gain = balance - invested;
+
+sip_output.innerHTML =
+"Invested: ₹" + Math.round(invested).toLocaleString() +
+"<br>Final Value: ₹" + Math.round(balance).toLocaleString();
+
+if(sipChart) sipChart.destroy();
+
+sipChart = new Chart(sip_chart, {
+  type:'pie',
+  data:{
+    labels:['Invested','Gain'],
+    datasets:[{
+      data:[invested, gain]
+    }]
+  }
+});
+}
+</script>
+  <!-- SCRIPT for step calc -->
+ <script>
+function toggleMenu(){
+  document.getElementById("navMenu").classList.toggle("show");
+}
+</script>
+
+</body>
+</html>
