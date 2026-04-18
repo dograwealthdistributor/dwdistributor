@@ -118,40 +118,46 @@ target="_blank">
 <section>
 <h2>SIP Calculator</h2>
 <div>Estimate how your monthly investments can grow over time and build long-term wealth.</div>
- <div class="calc-wrapper">
 
-<!-- LEFT (your existing calculator stays same) -->
-<div class="calc-main">
-<div class="services">
-<div class="card">
-   <a class="btn btn-blue" href="https://sbimf.app/630040AdW6Ec">👉 Start SIP Today!</a>
-<h3>SIP Calculator</h3>
-<input type="number" id="sip_amount" placeholder="Monthly Investment">
-<input type="number" id="sip_rate" placeholder="Expected Return % (p.a.)">
-<input type="number" id="sip_years" placeholder="Investment Duration (Years)">
-<input type="number" id="sip_stepup" placeholder="Yearly Step-Up %">
+<div class="calc-wrapper">
 
-<button class="btn" onclick="calcStepUp()">Calculate</button>
+  <!-- LEFT -->
+  <div class="calc-main">
+    <div class="services">
+      
+      <div class="card">
+        <a class="btn btn-blue" href="https://sbimf.app/630040AdW6Ec">👉 Start SIP Today!</a>
 
-<p class="result" id="sip_output"></p>
-<canvas id="sip_chart"></canvas>
-</div>
- <div class="calc-sidebar">
-<h3>Popular Calculators</h3>
+        <h3>SIP Calculator</h3>
 
-<a class="btn" href="index.html">Lumpsum Calculator</a>
-<a class="btn" href="sip.html">SIP Calculator</a>
-<a class="btn" href="swp.html">SWP Calculator</a>
-<a class="btn" href="stepup.html">Step-Up SIP</a>
-<a class="btn" href="swp-goal.html">Retirement Income Calculator</a>
-<a class="btn" href="inflation.html">Inflation Impact Calculator</a>
+        <input type="number" id="sip_amount" placeholder="Monthly Investment">
+        <input type="number" id="sip_rate" placeholder="Expected Return % (p.a.)">
+        <input type="number" id="sip_years" placeholder="Investment Duration (Years)">
+        <input type="number" id="sip_stepup" placeholder="Yearly Step-Up %">
+
+        <button class="btn" onclick="calcStepUp()">Calculate</button>
+
+        <p class="result" id="sip_output"></p>
+        <canvas id="sip_chart"></canvas>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- RIGHT (SIDEBAR — OUTSIDE services) -->
+  <div class="calc-sidebar">
+    <h3>Popular Calculators</h3>
+
+    <a class="btn" href="index.html">Lumpsum Calculator</a>
+    <a class="btn" href="sip.html">SIP Calculator</a>
+    <a class="btn" href="swp.html">SWP Calculator</a>
+    <a class="btn" href="stepup.html">Step-Up SIP</a>
+    <a class="btn" href="swp-goal.html">Retirement Income Calculator</a>
+    <a class="btn" href="inflation.html">Inflation Impact Calculator</a>
+  </div>
 
 </div>
-</div>
-  <!-- RIGHT (sidebar moved here) -->
-</div>
-</div>
- </section>
+</section>
 <!-- Content for page -->
  <section style="max-width:900px;margin:auto;padding:20px;text-align:left;">
 <!-- DESCRIPTION (SEO BOOST) -->
