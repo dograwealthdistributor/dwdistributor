@@ -63,12 +63,19 @@ display:inline-block;
 section{padding:60px 20px;text-align:center;}
 
 .services{
-display:flex;flex-wrap:wrap;justify-content:center;gap:20px;
+display:flex;
+justify-content:flex-start;  /* ✅ allows full width */
+width:100%;
 }
 
 .card{
-background:#fff;padding:20px;width:320px;
-border-radius:15px;box-shadow:0 5px 20px rgba(0,0,0,0.08); overflow:hidden;
+background:#fff;
+padding:20px;
+width:100%;            /* FULL WIDTH */
+max-width:800px;       /* control max size */
+border-radius:15px;
+box-shadow:0 5px 20px rgba(0,0,0,0.08);
+margin:auto;           /* center it */
 }
 
 .card input{width:100%;padding:8px;margin:5px 0; box-sizing:border-box;}
