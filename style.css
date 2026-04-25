@@ -241,4 +241,51 @@ flex-shrink:0;
 flex-direction:column;
 }
 }
+/* add image banner css /*/
+/* ADD THIS IN style.css */
+
+.promo-banner{
+  max-width:1100px;
+  margin:25px auto;
+  padding:0 15px;
+  text-align:center;
+  animation: bannerGlow 2s infinite alternate;
+}
+
+.promo-banner img{
+  width:100%;
+  max-width:1000px;
+  border-radius:18px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.15);
+  transition:0.4s ease;
+  cursor:pointer;
+}
+
+/* hover zoom effect */
+.promo-banner img:hover{
+  transform:scale(1.02);
+  box-shadow:0 15px 40px rgba(0,0,0,0.22);
+}
+
+/* attention animation */
+@keyframes bannerGlow{
+  from{
+    transform:translateY(0px);
+  }
+  to{
+    transform:translateY(-6px);
+  }
+}
+
+/* mobile responsive */
+@media(max-width:768px){
+  .promo-banner{
+    margin:15px auto;
+  }
+
+  .promo-banner img{
+    border-radius:12px;
+  }
+}
+/* add image banner css /*/
 </style>
