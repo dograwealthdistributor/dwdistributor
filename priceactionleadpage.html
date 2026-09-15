@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Candlestick & Price Action Course at Dogra Share Market Classes, Gurdaspur. Learn candlesticks, support & resistance, breakouts, stop-loss, targets and multi-timeframe analysis.">
+  <meta name="theme-color" content="#071a3d">
+  <title>Candlestick & Price Action Course | Dogra Share Market Classes</title>
+  <style>
+    :root{
+      --navy:#071a3d; --navy2:#0b285c; --gold:#f4c542; --gold2:#ffd96a;
+      --white:#fff; --muted:#d9e2f2; --ink:#101827; --soft:#f5f7fb;
+      --green:#19b86b; --line:#e5e9f2; --shadow:0 18px 50px rgba(7,26,61,.14);
+      --radius:20px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--ink);background:#fff;line-height:1.55}
+    a{text-decoration:none}
+    .container{width:min(1120px,92%);margin:auto}
+    .top{background:var(--navy);color:#fff;text-align:center;font-size:13px;padding:8px 12px}
+    header{background:linear-gradient(135deg,var(--navy),var(--navy2));color:#fff;position:relative;overflow:hidden}
+    header:before{content:"";position:absolute;width:430px;height:430px;border:1px solid rgba(244,197,66,.18);border-radius:50%;right:-150px;top:-190px}
+    nav{display:flex;align-items:center;justify-content:space-between;padding:18px 0;position:relative;z-index:2}
+    .brand{font-weight:900;letter-spacing:.2px;font-size:18px}
+    .brand span{display:block;color:var(--gold);font-size:11px;letter-spacing:1.5px;text-transform:uppercase}
+    .navbtn{color:var(--navy);background:var(--gold);padding:10px 16px;border-radius:999px;font-weight:800;font-size:13px}
+    .hero{padding:62px 0 78px;position:relative;z-index:1}
+    .hero-grid{display:grid;grid-template-columns:1.12fr .88fr;gap:42px;align-items:center}
+    .badge{display:inline-flex;gap:8px;align-items:center;border:1px solid rgba(244,197,66,.45);color:var(--gold2);padding:8px 13px;border-radius:999px;font-weight:800;font-size:12px;text-transform:uppercase;letter-spacing:.7px}
+    h1{font-size:clamp(38px,5.3vw,68px);line-height:1.03;margin:18px 0 18px;letter-spacing:-2.4px}
+    h1 em{font-style:normal;color:var(--gold)}
+    .hero p{font-size:18px;color:var(--muted);max-width:680px}
+    .ctas{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+    .btn{display:inline-flex;justify-content:center;align-items:center;gap:8px;padding:14px 20px;border-radius:12px;font-weight:900;transition:.2s}
+    .btn:hover{transform:translateY(-2px)}
+    .primary{background:var(--gold);color:var(--navy)}
+    .secondary{border:1px solid rgba(255,255,255,.25);color:#fff}
+    .trust{display:flex;gap:18px;flex-wrap:wrap;margin-top:24px;color:#dce6f8;font-size:13px}
+    .trust b{color:#fff}
+    .price-card{background:#fff;color:var(--ink);border-radius:24px;padding:28px;box-shadow:0 25px 70px rgba(0,0,0,.28);border:1px solid rgba(255,255,255,.4)}
+    .ribbon{display:inline-block;background:#eaf8f1;color:#087c47;padding:7px 10px;border-radius:999px;font-size:12px;font-weight:900}
+    .old{text-decoration:line-through;color:#8b94a7;font-size:18px;margin-top:20px}
+    .price{font-size:46px;line-height:1;font-weight:950;color:var(--navy);margin:4px 0}
+    .price small{font-size:14px;font-weight:700;color:#687286}
+    .save{color:#087c47;font-weight:900;font-size:13px}
+    .card-list{list-style:none;padding:0;margin:22px 0}
+    .card-list li{padding:9px 0;border-bottom:1px solid var(--line);font-size:14px}
+    .card-list li:before{content:"✓";color:#0a9c59;font-weight:900;margin-right:9px}
+    .full{width:100%}
+    section{padding:76px 0}
+    .soft{background:var(--soft)}
+    .section-head{text-align:center;max-width:760px;margin:0 auto 40px}
+    .eyebrow{color:#315a9e;font-weight:900;text-transform:uppercase;letter-spacing:1.3px;font-size:12px}
+    h2{font-size:clamp(30px,4vw,46px);line-height:1.08;margin:8px 0 12px;letter-spacing:-1px;color:var(--navy)}
+    .section-head p{color:#667085;margin:0}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .feature{padding:24px;border:1px solid var(--line);border-radius:var(--radius);background:#fff;box-shadow:0 8px 30px rgba(15,33,65,.05)}
+    .icon{width:42px;height:42px;border-radius:12px;background:#eef3fb;color:var(--navy);display:grid;place-items:center;font-size:20px;font-weight:900;margin-bottom:15px}
+    .feature h3{margin:0 0 6px;color:var(--navy);font-size:18px}
+    .feature p{margin:0;color:#667085;font-size:14px}
+    .syllabus{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    .lesson{display:flex;gap:15px;padding:19px;background:#fff;border:1px solid var(--line);border-radius:16px}
+    .num{min-width:34px;height:34px;border-radius:50%;background:var(--navy);color:var(--gold);display:grid;place-items:center;font-weight:900}
+    .lesson b{display:block;color:var(--navy);margin-bottom:3px}
+    .lesson span{font-size:13px;color:#667085}
+    .why{background:linear-gradient(135deg,var(--navy),#103d84);color:#fff;border-radius:28px;padding:42px}
+    .why h2{color:#fff}
+    .why-grid{display:grid;grid-template-columns:1fr 1fr;gap:35px;align-items:center}
+    .checks{display:grid;gap:13px}
+    .checks div{display:flex;gap:10px;align-items:flex-start;color:#e6eefc}
+    .checks strong{color:#fff}
+    .location{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .info{padding:26px;border:1px solid var(--line);border-radius:18px;background:#fff}
+    .info h3{margin-top:0;color:var(--navy)}
+    .info a{color:#174d9a;font-weight:800}
+    .faq{max-width:820px;margin:auto}
+    details{border-bottom:1px solid var(--line);padding:18px 0}
+    summary{cursor:pointer;font-weight:900;color:var(--navy)}
+    details p{color:#667085;margin-bottom:0;font-size:14px}
+    .final{background:var(--navy);color:#fff;text-align:center;padding:72px 0}
+    .final h2{color:#fff}
+    .final p{color:#dce6f8;max-width:680px;margin:0 auto 24px}
+    footer{background:#04132e;color:#aebbd0;text-align:center;padding:25px 0;font-size:12px}
+    .float{position:fixed;right:18px;bottom:18px;background:var(--green);color:#fff;padding:13px 17px;border-radius:999px;font-weight:950;box-shadow:0 12px 30px rgba(0,0,0,.22);z-index:50}
+    .note{font-size:11px;color:#7a8497;margin-top:13px}
+    @media(max-width:820px){
+      .hero-grid,.why-grid,.location{grid-template-columns:1fr}
+      .grid{grid-template-columns:1fr 1fr}
+      .syllabus{grid-template-columns:1fr}
+      .hero{padding-top:38px}
+      nav{padding:14px 0}
+    }
+    @media(max-width:560px){
+      .grid{grid-template-columns:1fr}
+      section{padding:56px 0}
+      .why{padding:28px 20px}
+      h1{letter-spacing:-1.5px}
+      .navbtn{padding:9px 12px;font-size:12px}
+      .brand{font-size:15px}
+    }
+  </style>
+</head>
+<body>
+  <div class="top">📍 Hanuman Chowk, Near AGM Mall, Gurdaspur, Punjab &nbsp; • &nbsp; 📞 +91-8493930204</div>
+
+  <header>
+    <div class="container">
+      <nav>
+        <div class="brand">DOGRA SHARE MARKET CLASSES<span>Learn • Analyse • Practice</span></div>
+        <a class="navbtn" href="#enrol">JOIN THE COURSE</a>
+      </nav>
+
+      <div class="hero">
+        <div class="hero-grid">
+          <div>
+            <div class="badge">🎯 Candlestick & Price Action Course</div>
+            <h1>Stop Guessing.<br><em>Start Reading</em> Price.</h1>
+            <p>Build a practical foundation in candlesticks and price action — from support & resistance to breakouts, stop-loss, targets and multi-timeframe analysis.</p>
+            <div class="ctas">
+              <a class="btn primary" href="https://wa.me/918493930204?text=Hi%20Dogra%20Share%20Market%20Classes%2C%20I%20want%20details%20about%20the%20Candlestick%20%26%20Price%20Action%20Course.">💬 WhatsApp for Course Details</a>
+              <a class="btn secondary" href="#syllabus">View Syllabus ↓</a>
+            </div>
+            <div class="trust">
+              <span>✓ <b>Offline Classroom</b></span>
+              <span>✓ <b>Beginner to Intermediate</b></span>
+              <span>✓ <b>6–8 Classes</b></span>
+            </div>
+          </div>
+
+          <div class="price-card" id="enrol">
+            <span class="ribbon">SPECIAL COURSE FEE</span>
+            <div class="old">Regular ₹4,999</div>
+            <div class="price">₹2,999 <small>incl. GST</small></div>
+            <div class="save">Save ₹2,000 • Limited special fee</div>
+            <ul class="card-list">
+              <li>Offline classroom learning</li>
+              <li>Candlestick & Price Action basics</li>
+              <li>Support & Resistance</li>
+              <li>Breakouts, Stop-Loss & Targets</li>
+              <li>Risk–Reward understanding</li>
+              <li>Multi-timeframe analysis</li>
+            </ul>
+            <a class="btn primary full" href="https://wa.me/918493930204?text=Hi%20Dogra%20Share%20Market%20Classes%2C%20I%20want%20to%20enrol%20in%20the%20Candlestick%20%26%20Price%20Action%20Course.%20Please%20share%20the%20batch%20details.">💬 Ask About Next Batch</a>
+            <div class="note">Course fee is inclusive of GST. Fees once paid are non-refundable.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section>
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">What you will learn</div>
+        <h2>Learn to Understand the Chart</h2>
+        <p>A structured classroom course designed to take you from chart basics to a repeatable price-action reading process.</p>
+      </div>
+      <div class="grid">
+        <div class="feature"><div class="icon">🕯</div><h3>Candlestick Reading</h3><p>Understand candle structure, price behaviour and commonly used candlestick concepts.</p></div>
+        <div class="feature"><div class="icon">📈</div><h3>Support & Resistance</h3><p>Learn how important price zones are identified and used while reading charts.</p></div>
+        <div class="feature"><div class="icon">🚀</div><h3>Breakouts</h3><p>Study breakout concepts, confirmation and common false-breakout situations.</p></div>
+        <div class="feature"><div class="icon">🛡</div><h3>Stop-Loss & Targets</h3><p>Learn practical concepts for planning entry, invalidation and potential targets.</p></div>
+        <div class="feature"><div class="icon">⚖</div><h3>Risk–Reward</h3><p>Understand how risk and potential reward can be evaluated before a trade idea.</p></div>
+        <div class="feature"><div class="icon">🔎</div><h3>Multi-Timeframe Analysis</h3><p>Learn how to look at multiple timeframes for broader chart context.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="soft" id="syllabus">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">Course syllabus</div>
+        <h2>From Basics to Practical Chart Reading</h2>
+        <p>6–8 offline classroom sessions • Beginner to Intermediate</p>
+      </div>
+      <div class="syllabus">
+        <div class="lesson"><div class="num">1</div><div><b>Market & Chart Basics</b><span>How price charts work, timeframes and the basics of reading market structure.</span></div></div>
+        <div class="lesson"><div class="num">2</div><div><b>Candlestick Concepts</b><span>Open, High, Low, Close and important candlestick formations.</span></div></div>
+        <div class="lesson"><div class="num">3</div><div><b>Support & Resistance</b><span>Identifying key zones and understanding price reactions around them.</span></div></div>
+        <div class="lesson"><div class="num">4</div><div><b>Breakouts & Price Behaviour</b><span>Breakout structure, confirmation and false-breakout awareness.</span></div></div>
+        <div class="lesson"><div class="num">5</div><div><b>Entry, Stop-Loss & Target</b><span>Practical frameworks for defining a trade setup and invalidation level.</span></div></div>
+        <div class="lesson"><div class="num">6</div><div><b>Risk–Reward</b><span>How to compare potential reward with the amount being risked.</span></div></div>
+        <div class="lesson"><div class="num">7</div><div><b>Multi-Timeframe Analysis</b><span>Connecting higher and lower timeframes for better chart context.</span></div></div>
+        <div class="lesson"><div class="num">8</div><div><b>Chart Practice</b><span>Apply the concepts on charts and build a simple analysis checklist.</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="why">
+        <div class="why-grid">
+          <div>
+            <div class="eyebrow" style="color:#ffd96a">Why this course?</div>
+            <h2>Less Theory. More Chart Understanding.</h2>
+            <p style="color:#dce6f8">The goal is not to overload you with indicators. The course focuses on core price-action concepts you can study, practise and apply while analysing charts.</p>
+          </div>
+          <div class="checks">
+            <div>✓ <span><strong>Structured learning:</strong> concepts are taught in a logical sequence.</span></div>
+            <div>✓ <span><strong>Practical focus:</strong> learn by looking at actual chart situations.</span></div>
+            <div>✓ <span><strong>Beginner friendly:</strong> suitable if you are starting your chart-reading journey.</span></div>
+            <div>✓ <span><strong>Classroom environment:</strong> learn face-to-face at our Gurdaspur location.</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="soft">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">Visit us</div>
+        <h2>Learn in the Classroom</h2>
+      </div>
+      <div class="location">
+        <div class="info">
+          <h3>📍 Classroom Address</h3>
+          <p>Dogra Share Market Classes<br>Hanuman Chowk, Near AGM Mall<br>Gurdaspur, Punjab</p>
+          <a href="https://www.google.com/maps/search/?api=1&query=Dogra+Share+Market+Classes+Hanuman+Chowk+Gurdaspur+Punjab" target="_blank" rel="noopener">Open location in Google Maps →</a>
+        </div>
+        <div class="info">
+          <h3>📞 Contact / Enquiry</h3>
+          <p>Call or WhatsApp for the next batch, timings, availability and enrolment.</p>
+          <p><a href="tel:+918493930204">+91-8493930204</a></p>
+          <a href="https://wa.me/918493930204?text=Hi%20Dogra%20Share%20Market%20Classes%2C%20I%20want%20details%20about%20the%20Candlestick%20%26%20Price%20Action%20Course.">Start WhatsApp Chat →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">Questions</div>
+        <h2>Frequently Asked</h2>
+      </div>
+      <div class="faq">
+        <details><summary>Who is this course for?</summary><p>It is designed for beginners to intermediate learners who want to understand candlesticks and price-action concepts in a structured classroom setting.</p></details>
+        <details><summary>How many classes are included?</summary><p>The course is planned for approximately 6–8 offline classroom classes.</p></details>
+        <details><summary>What is the course fee?</summary><p>The regular fee is ₹4,999. The current special course fee is ₹2,999 inclusive of GST.</p></details>
+        <details><summary>Do I need previous trading experience?</summary><p>No. The course starts with the basics and progressively moves toward practical chart analysis.</p></details>
+        <details><summary>Is this a guaranteed-profit or tips course?</summary><p>No. This is an educational course focused on learning and practising chart-reading concepts. Trading and investing involve market risk; no profit or return is guaranteed.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="final">
+    <div class="container">
+      <div class="eyebrow" style="color:#ffd96a">Ready to learn?</div>
+      <h2>Start Your Price Action Journey</h2>
+      <p>Message us on WhatsApp to ask about the next batch, class timings and enrolment.</p>
+      <a class="btn primary" href="https://wa.me/918493930204?text=Hi%20Dogra%20Share%20Market%20Classes%2C%20I%20want%20to%20join%20the%20Candlestick%20%26%20Price%20Action%20Course.%20Please%20share%20the%20next%20batch%20details.">💬 WhatsApp Now — +91-8493930204</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      © <span id="year"></span> Dogra Share Market Classes • Hanuman Chowk, Near AGM Mall, Gurdaspur, Punjab
+      <br><br>
+      <span>Educational content only. Trading/investing involves market risk. Past performance is not indicative of future results. No return or profit is guaranteed.</span>
+    </div>
+  </footer>
+
+  <a class="float" href="https://wa.me/918493930204?text=Hi%20Dogra%20Share%20Market%20Classes%2C%20I%20want%20course%20details.">💬 WhatsApp</a>
+  <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+</body>
+</html>
