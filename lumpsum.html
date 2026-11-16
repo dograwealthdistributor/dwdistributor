@@ -1,0 +1,225 @@
+<!-- KEEP YOUR FULL CODE SAME UNTIL calculator section -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dogra Wealth Distributor</title>
+<!-- Schema for search results -->
+    <script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@type": "FinancialService",
+"name": "Dogra Wealth Distributor",
+"image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhsBy1mYzL1KyNMM1uAK461QbnqSpCMqSrGgVZG4yIhcRv7UU5MTRi9VI9fcXmhUVX5NLX6uEbFbs5j_w2kLdmDdtxZkQWuNUhI6j6c69N3Ro4iBuT3gvPrPBxL7hnpGG9oye4g87AdPKJq2S5y9mSMjbOK7gkThVgc8c9g5TAZYggeCc52UN0si1aoFPDS/s552/Screenshot%202026-04-02%20165332.png",
+"url": "https://www.dwdistributor.in",
+"telephone": "+91-8493930204",
+"address": {
+  "@type": "PostalAddress",
+  "streetAddress": "Bath Wali Gali, Opp. Guru Nanak Park, Gurdaspur",
+  "addressLocality": "Gurdaspur",
+  "addressRegion": "Punjab",
+  "postalCode": "143521",
+  "addressCountry": "IN"
+},
+"sameAs": [
+  "https://www.dwdistributor.in"
+]
+}
+</script>
+  <!-- Schema for search results Ends-->  
+    <!-- Page specific schema for pages -->
+    <script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@type": "WebApplication",
+"name": "Lumpsum Calculator",
+"url": "https://www.dwdistributor.in/index.html",
+"applicationCategory": "FinanceApplication",
+"operatingSystem": "All",
+"description": "Calculate future value of a one-time investment based on expected returns.",
+"offers": {
+  "@type": "Offer",
+  "price": "0",
+  "priceCurrency": "INR"
+}
+}
+</script>
+    <!-- Title and meta for seo -->
+    <title>Lumpsum Calculator India | Calculate One-Time Investment Returns</title>
+
+<meta name="description" content="Free Lumpsum Calculator India. Calculate future value of your one-time investment with expected returns. Plan your wealth growth easily.">
+
+<meta name="keywords" content="lumpsum calculator india, one time investment calculator, mutual fund lumpsum calculator, investment calculator india, future value calculator">
+
+<meta name="robots" content="index, follow"> 
+       <!-- Title and meta for seo ends -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<link rel="stylesheet" href="style.css">
+    <link rel="canonical" href="https://www.dwdistributor.in/" />
+</head>
+
+<body>
+
+<header>
+<h1>Dogra Wealth Distributor</h1>
+<p>Turn Monthly Savings Into Future Freedom</p>
+<div class="menu-toggle" onclick="toggleMenu()">
+☰
+</div>
+
+<ul class="nav" id="navMenu">
+<li><a href="index.html">🏠 Home</a></li>
+<li><a href="sip.html">SIP</a></li>
+    <li><a href="stepup.html">Step-Up SIP</a></li>
+<li><a href="index.html">Lumpsum</a></li>
+<li><a href="swp.html">SWP</a></li>
+<li><a href="swp-goal.html">Retirement Income</a></li>
+<li><a href="inflation.html">Inflation</a></li>
+    <li><a href="stepup.html">SIP Stepup</a></li>
+</ul>
+<div class="nav">
+</div>
+<a class="btn btn-blue" href="https://2aia0.app.link/uqxt6Xktx2b">Start SIP</a>
+    <a class="btn" href="https://zerodha.com/open-account?c=ZMPYWZ">Open Demat Account</a>
+</header>
+<div class="banner">
+<div class="banner-text">
+🚀 Start Investing Today – Build Wealth Smartly
+</div>
+
+</div>
+<section>
+<!-- ADD THIS JUST BELOW </header> -->
+
+<div class="promo-banner">
+  <a href="https://2aia0.app.link/uqxt6Xktx2b" target="_blank">
+    <img 
+      src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgMOKndUquL7GaVv0RR9-R_8zzSsbB_2oLY5FYGbBAdDIMJatsIV7DygZGPaZvHfJFRVQW9GqP03YNcOJkDi3ViA-Y0tpatDkjxBCm-lsyi0W6t6PBWq2qPz1JN7mTe0ARC3yUy7lAEaONIAdc4p9tNTS9ZXKgRiz1UARE8KHciSyfUiQpKT0DH_OoQVR6h/s16000/SBI%20Mutual%20fund%20app.jpg" 
+      alt="Start SIP Today"
+    >
+  </a>
+</div><h2>Financial Calculators</h2>
+ <div>Calculate future value of a one-time investment based on expected returns.</div>
+<div class="calc-wrapper">
+
+  <!-- LEFT -->
+  <div class="calc-main">
+    <div class="services">
+      
+     <div class="card">
+  <a class="btn btn-blue" href="https://sbimf.app/630040AdW6Ec">👉 Start SIP Today!</a>
+<h3>FD/Lumpsum Calculator</h3>
+<input type="number" id="lum_amount" placeholder="Total Investment">
+<input type="number" id="lum_rate" placeholder="Expected Return Rate % (p.a.)">
+<input type="number" id="lum_years" placeholder="Time Period (Years)">
+<button class="btn" onclick="calcLump()">Calculate</button>
+<p class="result" id="lum_output"></p>
+<canvas id="lum_chart"></canvas>
+</div>
+
+    </div>
+  </div>
+
+  <!-- RIGHT (SIDEBAR — OUTSIDE services) -->
+  <div class="calc-sidebar">
+    <h3>Popular Calculators</h3>
+
+    <a class="btn" href="index.html">Lumpsum Calculator</a>
+    <a class="btn" href="sip.html">SIP Calculator</a>
+    <a class="btn" href="swp.html">SWP Calculator</a>
+    <a class="btn" href="stepup.html">Step-Up SIP</a>
+    <a class="btn" href="swp-goal.html">Retirement Income Calculator</a>
+    <a class="btn" href="inflation.html">Inflation Impact Calculator</a>
+  </div>
+
+</div>
+</section>
+    <!-- Content section -->
+    <section style="max-width:900px;margin:auto;padding:20px;text-align:left;">
+<h2>What is a Lumpsum Investment?</h2>
+<p>
+A lumpsum investment means investing a large amount of money at once instead of spreading it over time. This calculator helps you estimate how your one-time investment can grow based on expected returns.
+</p>
+
+<h3>How to use this calculator?</h3>
+<ul>
+<li>Enter your total investment amount</li>
+<li>Enter expected annual return</li>
+<li>Select time period in years</li>
+<li>Click calculate to see future value</li>
+</ul>
+
+<h3>Why use a Lumpsum Calculator?</h3>
+<p>
+It helps you plan your financial goals like retirement, child education, or wealth creation by showing expected growth of your investment.
+</p>
+</section>
+
+</section>
+    <section class="lead-section">
+<div class="lead-box">
+
+<div class="lead-left">
+<img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhsBy1mYzL1KyNMM1uAK461QbnqSpCMqSrGgVZG4yIhcRv7UU5MTRi9VI9fcXmhUVX5NLX6uEbFbs5j_w2kLdmDdtxZkQWuNUhI6j6c69N3Ro4iBuT3gvPrPBxL7hnpGG9oye4g87AdPKJq2S5y9mSMjbOK7gkThVgc8c9g5TAZYggeCc52UN0si1aoFPDS/s552/Screenshot%202026-04-02%20165332.png" class="lead-img">
+<div class="lead-name">Sunil Kumar</div>
+</div>
+
+<div class="lead-right">
+<h2>Start Your Mutual Fund Investment Easily</h2>
+<p>Get help with account setup, fund access, and smooth investment execution.</p>
+
+<p>
+✔ Free Account Setup<br>
+✔ SIP & Lumpsum Execution Support<br>
+✔ Simple & Hassle-Free Process
+</p>
+
+<a class="btn-whatsapp"
+href="https://wa.me/918493930204?text=Hi%20Sunil%20Ji,%20I%20want%20to%20start%20mutual%20fund%20investment.%20Please%20assist%20me."
+target="_blank">
+👉 Chat with Me on WhatsApp Now
+</a>
+
+</div>
+</div>
+</section>
+  <section class="footer">
+<div class="footer-box">
+<h2>Contact</h2>
+<p><strong>Sunil Kumar</strong></p>
+<p>AMFI Registered Mutual Fund Distributor: ARN-346191</p>
+<p>Authorised Person (AP) with NSE Exchange: AP2516004321</p>
+<p>📞 +91-8493930204</p>
+<p>📍 Opp. Guru Nanak Park, Gurdaspur, Punjab</p>
+<a class="btn" href="https://wa.me/918493930204">Chat on WhatsApp</a>
+</div>
+
+<div class="footer-box">
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3381.8935703761654!2d75.4038111!3d32.0450721!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391b927644f35e57%3A0x261b24146e966311!2sTara%20Chand%20Market%20Rd%2C%20Gurdaspur%2C%20Punjab%20143521!5e0!3m2!1sen!2sin"
+width="100%" height="300" style="border:0;border-radius:10px;" loading="lazy"></iframe>
+</div>
+</section>
+
+<a href="https://wa.me/918493930204" class="whatsapp">💬</a>
+
+<script>
+let lumChart;
+
+function calcLump(){
+let P=Number(lum_amount.value),r=Number(lum_rate.value)/100,n=Number(lum_years.value);
+if(!P||!r||!n)return;
+let FV=P*Math.pow(1+r,n),gain=FV-P;
+lum_output.innerHTML="Invested: ₹"+P.toLocaleString()+"<br>Final: ₹"+Math.round(FV).toLocaleString();
+if(lumChart)lumChart.destroy();
+lumChart=new Chart(lum_chart,{type:'pie',data:{labels:['Invested','Gain'],datasets:[{data:[P,gain]}]}});
+}
+</script>
+<script>
+function toggleMenu(){
+  document.getElementById("navMenu").classList.toggle("show");
+}
+</script>
+
+</body>
+</html>
