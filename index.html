@@ -99,7 +99,121 @@
       .navbtn{padding:9px 12px;font-size:12px}
       .brand{font-size:15px}
     }
-    <link rel="stylesheet" href="style.css">
+    /* Nav menu css */
+    /* MAIN NAVIGATION */
+
+.main-nav {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  padding: 15px 0 0;
+  position: relative;
+  z-index: 10;
+}
+
+.nav-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 15px;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 5px;
+  list-style: none;
+  padding: 12px 0;
+  margin: 0;
+  border-top: 1px solid rgba(255,255,255,.15);
+}
+
+.nav li a {
+  display: block;
+  color: #fff;
+  padding: 9px 13px;
+  font-size: 13px;
+  font-weight: 700;
+  border-radius: 8px;
+  transition: .2s;
+}
+
+.nav li a:hover {
+  background: var(--gold);
+  color: var(--navy);
+}
+
+.menu-toggle {
+  display: none;
+  color: var(--gold);
+  font-size: 27px;
+  cursor: pointer;
+  padding: 8px 0;
+  text-align: right;
+}
+
+/* MOBILE NAVIGATION */
+
+@media(max-width:820px) {
+
+  .main-nav {
+    padding-top: 12px;
+  }
+
+  .nav-top {
+    padding-bottom: 10px;
+  }
+
+  .menu-toggle {
+    display: block;
+    border-top: 1px solid rgba(255,255,255,.15);
+  }
+
+  .nav {
+    display: none;
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    padding: 8px 0 15px;
+    gap: 3px;
+    border-top: none;
+  }
+
+  .nav.active {
+    display: flex;
+  }
+
+  .nav li a {
+    padding: 12px 15px;
+    font-size: 14px;
+    border-radius: 8px;
+  }
+
+  .nav li a:hover {
+    background: var(--gold);
+    color: var(--navy);
+  }
+}
+
+@media(max-width:560px) {
+
+  .navbtn {
+    padding: 9px 12px;
+    font-size: 11px;
+  }
+
+  .brand {
+    font-size: 14px;
+  }
+
+  .brand span {
+    font-size: 10px;
+  }
+}
+    /*ends */
+    
   </style>
 </head>
 <body>
@@ -107,24 +221,30 @@
 
   <header>
     <div class="container">
-      <nav>
-        <div class="brand">DOGRA SHARE MARKET CLASSES<span>Learn • Analyse • Practice</span></div>
-          <div class="menu-toggle" onclick="toggleMenu()">
-☰
-</div>
-        <ul class="nav" id="navMenu">
-<li><a href="index.html">🏠 Home</a></li>
-<li><a href="sip.html">SIP</a></li>
-    <li><a href="stepup.html">Step-Up SIP</a></li>
-<li><a href="index.html">Lumpsum</a></li>
-<li><a href="swp.html">SWP</a></li>
-<li><a href="swp-goal.html">Retirement Income</a></li>
-<li><a href="inflation.html">Inflation</a></li>
-    <li><a href="stepup.html">SIP Stepup</a></li>
-</ul>
+    <nav class="main-nav">
+  <div class="nav-top">
+    <div class="brand">
+      DOGRA SHARE MARKET CLASSES
+      <span>Learn • Analyse • Practice</span>
+    </div>
 
-        <a class="navbtn" href="#enrol">JOIN THE COURSE</a>
-      </nav>
+    <a class="navbtn" href="#enrol">JOIN THE COURSE</a>
+  </div>
+
+  <div class="menu-toggle" onclick="toggleMenu()" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navMenu">
+    ☰
+  </div>
+
+  <ul class="nav" id="navMenu">
+    <li><a href="index.html">🏠 Home</a></li>
+    <li><a href="sip.html">SIP</a></li>
+    <li><a href="stepup.html">Step-Up SIP</a></li>
+    <li><a href="lumpsum.html">Lumpsum</a></li>
+    <li><a href="swp.html">SWP</a></li>
+    <li><a href="swp-goal.html">Retirement Income</a></li>
+    <li><a href="inflation.html">Inflation</a></li>
+  </ul>
+</nav>
 
       <div class="hero">
         <div class="hero-grid">
@@ -278,6 +398,33 @@
   </footer>
 
   <a class="float" href="https://wa.me/918493930204?text=Hi%20Dogra%20Share%20Market%20Classes%2C%20I%20want%20course%20details.">💬 WhatsApp</a>
-  <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+  <script>
+document.getElementById("year").textContent = new Date().getFullYear();
+
+function toggleMenu() {
+  const menu = document.getElementById("navMenu");
+  const toggle = document.querySelector(".menu-toggle");
+
+  menu.classList.toggle("active");
+
+  toggle.setAttribute(
+    "aria-expanded",
+    menu.classList.contains("active")
+  );
+
+  toggle.innerHTML = menu.classList.contains("active") ? "✕" : "☰";
+}
+
+// Close mobile menu after clicking a link
+document.querySelectorAll("#navMenu a").forEach(link => {
+  link.addEventListener("click", () => {
+    document.getElementById("navMenu").classList.remove("active");
+
+    const toggle = document.querySelector(".menu-toggle");
+    toggle.innerHTML = "☰";
+    toggle.setAttribute("aria-expanded", "false");
+  });
+});
+</script>
 </body>
 </html>
